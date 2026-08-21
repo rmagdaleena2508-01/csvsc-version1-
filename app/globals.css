@@ -29,7 +29,7 @@
 
   /* Editorial display scale — fluid, no breakpoint jumps */
   --text-display: clamp(2.6rem, 6.9vw, 7.5rem);
-  --text-display--line-height: 0.92;
+  --text-display--line-height: 1;
   --text-display--letter-spacing: -0.035em;
 
   --text-headline: clamp(1.9rem, 4.4vw, 3.9rem);
@@ -125,6 +125,18 @@ body {
 .link-underline:hover,
 .link-underline:focus-visible {
   background-size: 100% 1px;
+}
+
+/* Script accent inside a grotesk headline. The face has a much smaller
+   x-height, so it is scaled up and nudged down to sit on the same baseline;
+   tracking opens slightly because the letterforms already join. */
+.script-accent {
+  font-family: var(--font-script), "Snell Roundhand", cursive;
+  font-size: 1.3em;
+  line-height: 0.8;
+  letter-spacing: 0.005em;
+  padding-inline: 0.04em;
+  vertical-align: -0.06em;
 }
 
 /* Liquid glass — the floating navigation surface. Blur plus saturation lifts

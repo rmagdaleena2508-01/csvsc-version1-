@@ -16,7 +16,9 @@ export function Hero() {
           <h1 className="text-display max-w-[16ch] text-center font-normal text-balance text-white sm:max-w-[20ch]">
             Where curious students{" "}
             <span className="text-white/70">
-              build a community and technology together.
+              build a <span className="script-accent text-white">community</span>{" "}
+              and <span className="script-accent text-white">technology</span>{" "}
+              together.
             </span>
           </h1>
         </div>
