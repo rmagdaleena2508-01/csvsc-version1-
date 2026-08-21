@@ -3,7 +3,7 @@ import {
   Great_Vibes,
   Instrument_Sans,
   Inter,
-  Yellowtail,
+  Ephesis,
 } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -32,9 +32,9 @@ const script = Great_Vibes({
   display: "swap",
 });
 
-// Heavier connected script — carries more ink than Great Vibes, so it holds up
-// at the small sizes the chapter line runs at.
-const scriptAlt = Yellowtail({
+// Wide, modern calligraphy for the chapter line — the same flavour as the
+// poster lettering: high contrast, long swashes, upright-leaning.
+const scriptAlt = Ephesis({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script-alt",
