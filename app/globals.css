@@ -133,12 +133,11 @@ body {
   letter-spacing: -0.04em;
 }
 
-.script-alt {
-  font-family: var(--font-script-alt), "Snell Roundhand", cursive;
-  font-size: 1.34em;
-  line-height: 1.1;
-  letter-spacing: 0.012em;
-  vertical-align: -0.04em;
+.inter-italic {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* Script accent inside a grotesk headline. The face has a much smaller

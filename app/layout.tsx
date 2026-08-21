@@ -3,7 +3,6 @@ import {
   Great_Vibes,
   Instrument_Sans,
   Inter,
-  Ephesis,
 } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -20,7 +19,7 @@ const instrument = Instrument_Sans({
 // Accent faces, both used only in the hero headline.
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "700"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -29,15 +28,6 @@ const script = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
-  display: "swap",
-});
-
-// Wide, modern calligraphy for the chapter line — the same flavour as the
-// poster lettering: high contrast, long swashes, upright-leaning.
-const scriptAlt = Ephesis({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-script-alt",
   display: "swap",
 });
 
@@ -83,7 +73,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable} ${scriptAlt.variable}`}>
+    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable}`}>
       <body className="grain antialiased">
         <a
           href="#main"

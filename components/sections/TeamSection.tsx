@@ -63,7 +63,7 @@ export function TeamSection({ members = team }: { members?: typeof team }) {
             >
               Meet the Team
             </h2>
-            <p className="script-alt mt-1.5 text-[1.125rem] text-navy/75">
+            <p className="inter-italic mt-2 text-[0.9375rem] text-navy/70">
               of CSI SRMIST VDP Student Chapter
             </p>
           </div>
