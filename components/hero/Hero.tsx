@@ -15,7 +15,7 @@ export function Hero() {
         <div className="flex justify-center">
           <h1 className="text-display max-w-[16ch] text-center font-normal text-balance text-white sm:max-w-[20ch]">
             Where curious <span className="inter-accent">students</span>{" "}
-            <span className="text-white/70">
+            <span>
               build a <span className="script-accent text-white">community</span>{" "}
               and <span className="script-accent text-white">technology</span>{" "}
               together.
