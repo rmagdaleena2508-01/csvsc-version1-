@@ -100,28 +100,34 @@ export function Navbar() {
         {/* Wordmark */}
         <Link
           href="/"
-          className={`glass group flex items-center gap-2.5 rounded-full p-1 pr-4 backdrop-blur-2xl backdrop-saturate-150 ${
+          className={`glass group flex items-center gap-2.5 rounded-full p-1.5 backdrop-blur-2xl backdrop-saturate-150 sm:pr-4 ${
             scrolled ? "glass-solid" : ""
           }`}
           aria-label={`${site.name}, ${site.institution} — home`}
         >
-          <span className="flex items-center gap-1.5">
-            <Image
-              src="/images/brand/csi-emblem.png"
-              alt=""
-              width={447}
-              height={447}
-              priority
-              className="size-9 rounded-full bg-white/85 p-px"
-            />
-            <Image
-              src="/images/brand/srmist-seal.png"
-              alt=""
-              width={244}
-              height={238}
-              priority
-              className="size-9 rounded-full bg-white/85 object-contain"
-            />
+          {/* Both marks sit in identical discs — same diameter, same inset — so
+              two logos drawn at different scales still read as a pair. */}
+          <span className="flex items-center gap-2">
+            <span className="grid size-9 place-items-center rounded-full bg-white/90 ring-1 ring-navy/8">
+              <Image
+                src="/images/brand/csi-emblem.png"
+                alt=""
+                width={447}
+                height={447}
+                priority
+                className="size-7 object-contain"
+              />
+            </span>
+            <span className="grid size-9 place-items-center rounded-full bg-white/90 ring-1 ring-navy/8">
+              <Image
+                src="/images/brand/srmist-seal.png"
+                alt=""
+                width={244}
+                height={238}
+                priority
+                className="size-7 object-contain"
+              />
+            </span>
           </span>
           <span className="hidden text-[0.9375rem] leading-tight font-medium tracking-[-0.02em] text-navy sm:block">
             CSI Student Chapter
