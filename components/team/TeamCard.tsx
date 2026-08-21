@@ -45,6 +45,12 @@ export function TeamCard({ member }: { member: TeamMember }) {
           {member.name ?? "Announcing soon"}
         </h3>
 
+        {member.detail ? (
+          <p className="text-[0.875rem] leading-snug text-slate-blue">
+            {member.detail}
+          </p>
+        ) : null}
+
         {member.quote ? (
           <p className="mt-1 text-[0.9375rem] leading-relaxed text-slate-blue">
             &ldquo;{member.quote}&rdquo;

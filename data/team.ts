@@ -3,46 +3,50 @@ export type TeamMember = {
    *  quiet "announcing soon" state instead of a portrait. */
   name?: string;
   role: string;
+  /** Shown under the role, for a title the role alone does not carry. */
+  detail?: string;
   quote?: string;
   image?: string;
   linkedin?: string;
 };
 
-/**
- * TODO (chapter team): fill in the remaining office bearers, portraits and
- * LinkedIn links. Positions left without a `name` render as pending on purpose.
- */
+/** Office bearers 2026–27, faculty first. */
 export const team: TeamMember[] = [
   {
-    role: "President",
+    name: "Dr. K. Akila",
+    role: "CSI SDC",
+    detail: "Assistant Professor (Sr.G), DCSE",
+    image: "/images/team/akila.jpg",
   },
   {
-    name: "R. Magdaleena",
+    name: "A. Sasank Veera Sadhu",
+    role: "President",
+    image: "/images/team/sasank-veera-sadhu.jpg",
+  },
+  {
+    name: "Magdaleena R",
     role: "Vice President",
     quote: "Confidence often comes after action.",
-    image: "/images/team/member-02.svg",
+    image: "/images/team/magdaleena.jpg",
   },
   {
+    name: "Deepika S",
     role: "Secretary",
+    image: "/images/team/deepika.jpg",
   },
   {
+    name: "D. Sri Sasank",
     role: "Treasurer",
+    image: "/images/team/sri-sasank.jpg",
   },
   {
-    role: "Technical Lead",
+    name: "S. Chaitanya Kumar",
+    role: "PR Head",
+    image: "/images/team/chaitanya-kumar.jpg",
   },
   {
-    role: "Events Lead",
+    name: "Pranesh M S",
+    role: "Executive Member",
+    image: "/images/team/pranesh.jpg",
   },
-  {
-    role: "Design Lead",
-  },
-  {
-    role: "Outreach Lead",
-  },
-];
-
-export const faculty: TeamMember[] = [
-  { role: "Faculty Coordinator" },
-  { role: "Head of Department" },
 ];

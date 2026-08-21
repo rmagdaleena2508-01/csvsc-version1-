@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { TeamCard } from "@/components/team/TeamCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { SocialCTA } from "@/components/sections/SocialCTA";
-import { faculty, team } from "@/data/team";
+import { team } from "@/data/team";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -42,25 +42,6 @@ export default function TeamPage() {
               index={i % 4}
               className="h-full"
             >
-              <TeamCard member={member} />
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      <section
-        aria-labelledby="faculty-heading"
-        className="container-editorial pb-section"
-      >
-        <h2
-          id="faculty-heading"
-          className="text-headline border-t border-navy/12 pt-8 font-normal text-navy"
-        >
-          Faculty leadership
-        </h2>
-        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {faculty.map((member, i) => (
-            <Reveal as="li" key={member.role} index={i} className="h-full">
               <TeamCard member={member} />
             </Reveal>
           ))}
