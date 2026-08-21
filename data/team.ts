@@ -26,7 +26,6 @@ export const team: TeamMember[] = [
   {
     name: "Magdaleena R",
     role: "Vice President",
-    quote: "Confidence often comes after action.",
     image: "/images/team/magdaleena.jpg",
   },
   {

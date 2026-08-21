@@ -21,7 +21,7 @@ export default function TeamPage() {
         <h1 className="inter-accent text-display mt-6 max-w-[13ch] font-normal text-navy text-balance">
           Meet the Team
         </h1>
-        <p className="mt-4 text-[1.0625rem] text-slate-blue">
+        <p className="script-accent mt-4 text-[1.0625rem] text-slate-blue">
           of CSI SRMIST VDP Student Chapter
         </p>
         <p className="text-lead mt-8 max-w-[52ch] text-slate-blue text-pretty">

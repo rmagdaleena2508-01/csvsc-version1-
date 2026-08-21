@@ -33,12 +33,12 @@ export function TeamCard({ member }: { member: TeamMember }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-2 px-1 pt-6">
-        <span className="text-eyebrow font-medium tracking-[0.18em] text-slate-blue uppercase">
+        <span className="inter-accent text-eyebrow font-medium tracking-[0.16em] text-slate-blue uppercase">
           {member.role}
         </span>
 
         <h3
-          className={`text-[1.375rem] leading-tight font-normal tracking-[-0.025em] ${
+          className={`script-accent text-[1.375rem] leading-tight font-normal ${
             pending ? "text-slate-blue" : "text-navy"
           }`}
         >

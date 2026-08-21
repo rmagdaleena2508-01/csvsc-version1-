@@ -145,6 +145,13 @@ body {
   vertical-align: -0.06em;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Liquid glass — the floating navigation surface. Blur plus saturation lifts
    whatever sits behind it, a top sheen reads as a curved edge catching light,
    and the inset rim keeps the pill legible over sky, cream and navy alike. */
