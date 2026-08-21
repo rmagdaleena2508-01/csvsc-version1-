@@ -31,7 +31,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/events"
-            className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-cream px-7 text-base font-medium tracking-[-0.01em] text-navy shadow-[0_12px_30px_-16px_rgba(10,26,64,0.8)] transition-colors duration-300 hover:bg-white"
+            className="group inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-full bg-cream px-7 sm:w-56 sm:max-w-none text-base font-medium tracking-[-0.01em] text-navy shadow-[0_12px_30px_-16px_rgba(10,26,64,0.8)] transition-colors duration-300 hover:bg-white"
           >
             Explore Events
             <ArrowRight
@@ -45,7 +45,7 @@ export function Hero() {
             href={site.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-navy/85 px-7 text-base font-medium tracking-[-0.01em] text-cream ring-1 ring-white/25 backdrop-blur-[2px] transition-colors duration-300 hover:bg-navy"
+            className="inline-flex h-13 w-full max-w-xs items-center justify-center gap-2 rounded-full bg-navy/85 px-7 sm:w-56 sm:max-w-none text-base font-medium tracking-[-0.01em] text-cream ring-1 ring-white/25 backdrop-blur-[2px] transition-colors duration-300 hover:bg-navy"
           >
             <LinkedinIcon size={16} strokeWidth={1.7} />
             Follow on LinkedIn
