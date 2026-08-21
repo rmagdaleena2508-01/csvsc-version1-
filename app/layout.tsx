@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Great_Vibes, Instrument_Sans, Inter } from "next/font/google";
+import {
+  Great_Vibes,
+  Instrument_Sans,
+  Inter,
+  Yellowtail,
+} from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -24,6 +29,15 @@ const script = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
+  display: "swap",
+});
+
+// Heavier connected script — carries more ink than Great Vibes, so it holds up
+// at the small sizes the chapter line runs at.
+const scriptAlt = Yellowtail({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script-alt",
   display: "swap",
 });
 
@@ -69,7 +83,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable}`}>
+    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable} ${scriptAlt.variable}`}>
       <body className="grain antialiased">
         <a
           href="#main"
