@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,13 +9,7 @@ import { team } from "@/data/team";
 /** Matches the gap-8 between cards. */
 const GAP = 32;
 
-export function TeamSection({
-  members = team,
-  showAllLink = true,
-}: {
-  members?: typeof team;
-  showAllLink?: boolean;
-}) {
+export function TeamSection({ members = team }: { members?: typeof team }) {
   const rail = useRef<HTMLUListElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -70,20 +63,12 @@ export function TeamSection({
             >
               Meet the Team
             </h2>
-            <p className="script-accent mt-2 text-[0.9375rem] text-slate-blue">
+            <p className="script-accent mt-1.5 text-[1.125rem] text-slate-blue">
               of CSI SRMIST VDP Student Chapter
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            {showAllLink ? (
-              <Link
-                href="/team"
-                className="link-underline mr-1 text-[0.9375rem] text-navy/70 hover:text-navy"
-              >
-                Full team
-              </Link>
-            ) : null}
             <button
               type="button"
               onClick={() => step(-1)}
