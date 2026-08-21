@@ -61,9 +61,10 @@ export function Footer() {
           </nav>
         </div>
 
-        <p className="border-t border-navy/10 pt-8 text-[0.8125rem] tracking-[-0.005em] text-slate-blue">
-          {site.legalName}
-        </p>
+        <div className="flex flex-col gap-3 border-t border-navy/10 pt-8 text-[0.8125rem] tracking-[-0.005em] text-slate-blue sm:flex-row sm:items-center sm:justify-between">
+          <p>{site.legalName}</p>
+          <p>Designed and developed by Magdaleena R, Vice President @ CSI SRMIST</p>
+        </div>
       </div>
     </footer>
   );
