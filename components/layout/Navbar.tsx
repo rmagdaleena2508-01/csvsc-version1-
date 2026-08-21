@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import { InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { navigation, site } from "@/data/site";
 import { SCROLL_DURATION, scrollToId } from "@/lib/scroll";
+import { CollegeCard } from "./CollegeCard";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,6 +17,7 @@ export function Navbar() {
   // Held true from the moment a section link is clicked until the scroll lands,
   // so the pill darkens on click instead of when the section finally arrives.
   const [pinned, setPinned] = useState(false);
+  const [collegeOpen, setCollegeOpen] = useState(false);
   const frame = useRef(0);
   const pinTimer = useRef(0);
   const pathname = usePathname();
@@ -97,45 +99,43 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container-editorial flex items-center justify-between gap-4 py-4 sm:py-5">
-        {/* Wordmark */}
-        <Link
-          href="/"
-          className={`glass group flex items-center gap-2.5 rounded-full p-1.5 backdrop-blur-2xl backdrop-saturate-150 sm:pr-4 ${
+        {/* Wordmark. The seal is its own control, so it sits beside the home
+            link rather than inside it — a button nested in an anchor is invalid
+            and swallows one of the two actions. */}
+        <div
+          className={`glass flex items-center gap-2.5 rounded-full p-1.5 backdrop-blur-2xl backdrop-saturate-150 sm:pr-4 ${
             scrolled ? "glass-solid" : ""
           }`}
-          aria-label={`${site.name}, ${site.institution} — home`}
         >
-          {/* Both marks sit in identical discs — same diameter, same inset — so
-              two logos drawn at different scales still read as a pair. */}
-          <span className="flex items-center gap-2">
-            <span className="grid size-9 place-items-center rounded-full bg-white/90 ring-1 ring-navy/8">
-              <Image
-                src="/images/brand/csi-emblem.png"
-                alt=""
-                width={447}
-                height={447}
-                priority
-                className="size-7 object-contain"
-              />
-            </span>
-            <span className="grid size-9 place-items-center rounded-full bg-white/90 ring-1 ring-navy/8">
-              <Image
-                src="/images/brand/srmist-seal.png"
-                alt=""
-                width={244}
-                height={238}
-                priority
-                className="size-7 object-contain"
-              />
-            </span>
-          </span>
-          <span className="hidden text-[0.9375rem] leading-tight font-medium tracking-[-0.02em] text-navy sm:block">
+          <button
+            type="button"
+            onClick={() => setCollegeOpen(true)}
+            aria-haspopup="dialog"
+            aria-expanded={collegeOpen}
+            aria-label={`About ${site.institution}`}
+            className="grid size-9 place-items-center rounded-full bg-white/90 ring-1 ring-navy/8 transition-transform duration-300 ease-[var(--ease-editorial)] hover:scale-105"
+          >
+            <Image
+              src="/images/brand/srmist-seal.png"
+              alt=""
+              width={244}
+              height={238}
+              priority
+              className="size-7 object-contain"
+            />
+          </button>
+
+          <Link
+            href="/"
+            className="hidden text-[0.9375rem] leading-tight font-medium tracking-[-0.02em] text-navy sm:block"
+            aria-label={`${site.name}, ${site.institution} — home`}
+          >
             CSI Student Chapter
             <span className="block text-[0.6875rem] font-normal tracking-[0.08em] text-slate-blue uppercase">
               SRMIST Vadapalani
             </span>
-          </span>
-        </Link>
+          </Link>
+        </div>
 
         {/* Desktop pill navigation */}
         <nav
@@ -248,6 +248,7 @@ export function Navbar() {
           </div>
         </nav>
       </div>
+      <CollegeCard open={collegeOpen} onClose={() => setCollegeOpen(false)} />
     </header>
   );
 }
