@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import { LinkedinIcon } from "@/components/ui/icons";
 import type { TeamMember } from "@/data/team";
 
@@ -12,7 +11,6 @@ export function TeamCard({ member }: { member: TeamMember }) {
         {member.image ? (
           <Image
             src={member.image}
-            unoptimized={isVector(member.image)}
             alt={`${member.name} — ${member.role}`}
             fill
             sizes="(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw"

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 
 /**
  * The chapter emblem, held still in the sky. A soft radial lift sits behind it

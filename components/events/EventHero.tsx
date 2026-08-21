@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { formatEventDate, type ChapterEvent } from "@/data/events";
@@ -47,7 +46,6 @@ export function EventHero({ event }: { event: ChapterEvent }) {
       <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] bg-sky-100 ring-1 ring-navy/8 sm:mt-16">
         <Image
           src={event.image}
-            unoptimized={isVector(event.image)}
           alt={`${event.title} — photograph from the session`}
           fill
           priority

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { site } from "@/data/site";
 
 const columns = [

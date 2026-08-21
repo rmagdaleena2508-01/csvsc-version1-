@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import { ArrowRight, CalendarDays, MapPin, Mic } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { featuredEvent, formatEventDate } from "@/data/events";
@@ -78,7 +77,6 @@ export function CurrentEvent() {
           <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8 lg:aspect-[4/3]">
             <Image
               src={event.image}
-            unoptimized={isVector(event.image)}
               alt={`${event.title} — event poster`}
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"

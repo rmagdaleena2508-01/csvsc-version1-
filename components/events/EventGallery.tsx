@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function EventGallery({
@@ -30,7 +29,6 @@ export function EventGallery({
             >
               <Image
                 src={src}
-            unoptimized={isVector(src)}
                 alt={`${title} — photograph ${i + 1}`}
                 fill
                 loading="lazy"

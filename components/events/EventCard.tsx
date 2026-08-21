@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import { ArrowRight } from "lucide-react";
 import { formatEventDate, type ChapterEvent } from "@/data/events";
 
@@ -20,7 +19,6 @@ export function EventCard({ event, priority = false }: Props) {
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8">
           <Image
             src={event.image}
-            unoptimized={isVector(event.image)}
             alt={`${event.title} — session photograph`}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"

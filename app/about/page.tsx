@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 import { SocialCTA } from "@/components/sections/SocialCTA";
 

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { isVector } from "@/lib/media";
+import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 
 const moments = [
@@ -44,7 +43,6 @@ function Frame({
     >
       <Image
         src={src}
-            unoptimized={isVector(src)}
         alt={alt}
         fill
         sizes={sizes}
