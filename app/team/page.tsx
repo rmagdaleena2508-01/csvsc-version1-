@@ -18,9 +18,12 @@ export default function TeamPage() {
         <p className="text-eyebrow font-medium tracking-[0.18em] text-slate-blue uppercase">
           Office bearers
         </p>
-        <h1 className="text-display mt-6 max-w-[13ch] font-normal text-navy text-balance">
-          The people behind CSI
+        <h1 className="inter-accent text-display mt-6 max-w-[13ch] font-normal text-navy text-balance">
+          Meet the Team
         </h1>
+        <p className="mt-4 text-[1.0625rem] text-slate-blue">
+          of CSI SRMIST VDP Student Chapter
+        </p>
         <p className="text-lead mt-8 max-w-[52ch] text-slate-blue text-pretty">
           Students who plan the sessions, run the room and keep the chapter
           moving, supported by faculty who make it possible.

@@ -17,9 +17,17 @@ export function TeamSection({
     >
       <Reveal>
         <div className="flex flex-wrap items-baseline justify-between gap-4 border-t border-navy/12 pt-8">
-          <h2 id="team-heading" className="text-headline font-normal text-navy">
-            The people behind CSI
-          </h2>
+          <div>
+            <h2
+              id="team-heading"
+              className="inter-accent text-headline font-normal text-navy"
+            >
+              Meet the Team
+            </h2>
+            <p className="mt-2 text-[0.9375rem] text-slate-blue">
+              of CSI SRMIST VDP Student Chapter
+            </p>
+          </div>
           {showAllLink ? (
             <Link
               href="/team"

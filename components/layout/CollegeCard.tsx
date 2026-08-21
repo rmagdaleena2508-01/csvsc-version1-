@@ -34,29 +34,43 @@ export function CollegeCard({
     };
   }, [open, onClose]);
 
-  const motionProps = reduced
+  const ease = [0.32, 0.72, 0, 1] as const;
+
+  // Closing runs longer than opening and settles back toward the seal in the
+  // navigation, so the card reads as returning to where it came from rather
+  // than being cut. No filter animation — blurring a whole layer per frame is
+  // what made the dismissal stutter.
+  const cardMotion = reduced
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.94, y: 10 },
-        animate: { opacity: 1, scale: 1, y: 0 },
-        exit: { opacity: 0, scale: 0.88, y: 14, filter: "blur(3px)" },
-        transition: { duration: 0.26, ease: [0.22, 0.61, 0.36, 1] as const },
+        initial: { opacity: 0, scale: 0.94, y: 12 },
+        animate: {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          transition: { duration: 0.32, ease },
+        },
+        exit: {
+          opacity: 0,
+          scale: 0.9,
+          y: -6,
+          x: -10,
+          transition: { duration: 0.42, ease },
+        },
       };
 
   return (
     <AnimatePresence>
       {open ? (
-        <motion.div
-          className="fixed inset-0 z-100 grid place-items-center px-5"
-          initial={reduced ? undefined : { opacity: 0 }}
-          animate={reduced ? undefined : { opacity: 1 }}
-          exit={reduced ? undefined : { opacity: 0 }}
-          transition={{ duration: 0.22 }}
-        >
-          <div
+        <div className="fixed inset-0 z-100 grid place-items-center px-5">
+          <motion.div
             className="absolute inset-0 bg-navy/45 backdrop-blur-sm"
             onClick={onClose}
             aria-hidden
+            initial={reduced ? undefined : { opacity: 0 }}
+            animate={reduced ? undefined : { opacity: 1 }}
+            exit={reduced ? undefined : { opacity: 0 }}
+            transition={{ duration: 0.42, ease }}
           />
 
           <motion.div
@@ -69,8 +83,9 @@ export function CollegeCard({
               // around the edge instead of running flat across it.
               background:
                 "conic-gradient(from 210deg at 50% 50%, #f8fbff 0deg, #2b52a8 38deg, #d8e9fa 76deg, #12265c 128deg, #9fd0f5 172deg, #1b3a86 218deg, #eaf4ff 262deg, #2b52a8 308deg, #f8fbff 360deg)",
+              transformOrigin: "top left",
             }}
-            {...motionProps}
+            {...cardMotion}
           >
             <div className="relative overflow-hidden rounded-[1.4rem] bg-cream px-8 pt-10 pb-9 ring-1 ring-white/70">
               {/* specular sheen across the top of the card face */}
@@ -115,7 +130,7 @@ export function CollegeCard({
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       ) : null}
     </AnimatePresence>
   );
