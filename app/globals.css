@@ -127,6 +127,11 @@ body {
   background-size: 100% 1px;
 }
 
+.inter-accent {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+}
+
 /* Script accent inside a grotesk headline. The face has a much smaller
    x-height, so it is scaled up and nudged down to sit on the same baseline;
    tracking opens slightly because the letterforms already join. */

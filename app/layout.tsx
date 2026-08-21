@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Great_Vibes, Instrument_Sans } from "next/font/google";
+import { Great_Vibes, Instrument_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -12,7 +12,14 @@ const instrument = Instrument_Sans({
   display: "swap",
 });
 
-// Used for the two accent words in the hero headline, nothing else.
+// Accent faces, both used only in the hero headline.
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 const script = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
@@ -62,7 +69,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${instrument.variable} ${script.variable}`}>
+    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable}`}>
       <body className="grain antialiased">
         <a
           href="#main"

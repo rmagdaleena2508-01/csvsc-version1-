@@ -14,7 +14,7 @@ export function Hero() {
       <div className="container-editorial flex flex-1 flex-col pt-[clamp(5.25rem,11vh,8rem)] pb-[clamp(1rem,2vh,2rem)]">
         <div className="flex justify-center">
           <h1 className="text-display max-w-[16ch] text-center font-normal text-balance text-white sm:max-w-[20ch]">
-            Where curious students{" "}
+            Where curious <span className="inter-accent">students</span>{" "}
             <span className="text-white/70">
               build a <span className="script-accent text-white">community</span>{" "}
               and <span className="script-accent text-white">technology</span>{" "}
