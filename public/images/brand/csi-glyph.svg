@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="CSI">
+  <g fill="#12265c">
+    <path d="M8 8 L34 32 L8 56 Z"/>
+    <path d="M56 6 L56 30 L34 30 Z"/>
+    <path d="M56 58 L56 34 L34 34 Z"/>
+  </g>
+</svg>

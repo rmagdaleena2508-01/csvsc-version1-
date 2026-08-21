@@ -1,0 +1,70 @@
+import Image from "next/image";
+import { isVector } from "@/lib/media";
+import { LinkedinIcon } from "@/components/ui/icons";
+import type { TeamMember } from "@/data/team";
+
+export function TeamCard({ member }: { member: TeamMember }) {
+  const pending = !member.name;
+
+  return (
+    <article className="group flex h-full flex-col">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8">
+        {member.image ? (
+          <Image
+            src={member.image}
+            unoptimized={isVector(member.image)}
+            alt={`${member.name} — ${member.role}`}
+            fill
+            sizes="(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw"
+            loading="lazy"
+            className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div className="grid h-full place-items-center bg-sky-50">
+            <Image
+              src="/images/brand/csi-glyph.svg"
+              unoptimized
+              alt=""
+              width={72}
+              height={72}
+              loading="lazy"
+              className="opacity-25"
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col gap-2 px-1 pt-6">
+        <span className="text-eyebrow font-medium tracking-[0.18em] text-slate-blue uppercase">
+          {member.role}
+        </span>
+
+        <h3
+          className={`text-[1.375rem] leading-tight font-normal tracking-[-0.025em] ${
+            pending ? "text-slate-blue" : "text-navy"
+          }`}
+        >
+          {member.name ?? "Announcing soon"}
+        </h3>
+
+        {member.quote ? (
+          <p className="mt-1 text-[0.9375rem] leading-relaxed text-slate-blue">
+            &ldquo;{member.quote}&rdquo;
+          </p>
+        ) : null}
+
+        {member.linkedin ? (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${member.name} on LinkedIn`}
+            className="mt-3 inline-flex size-9 items-center justify-center rounded-full ring-1 ring-navy/12 text-navy/70 transition-colors hover:bg-navy/5 hover:text-navy"
+          >
+            <LinkedinIcon size={16} strokeWidth={1.6} />
+          </a>
+        ) : null}
+      </div>
+    </article>
+  );
+}
