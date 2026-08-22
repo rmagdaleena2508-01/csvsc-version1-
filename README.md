@@ -1,183 +1,173 @@
 # CSI Student Chapter — SRMIST Vadapalani
 
-The official site of the Computer Society of India Student Chapter at SRMIST
-Vadapalani.
+Website for the Computer Society of India Student Chapter at SRMIST Vadapalani.
 
-**Live:** https://rmagdaleena2508-01.github.io/CSI-SRMISTVDP/
+Live at https://csi-srmistvdp.vercel.app
 
----
+## What this is for
 
-## Why this exists
+Our chapter runs sessions fairly regularly, and until now the only record of
+them was a poster in a WhatsApp group. Those scroll away in about a week. Six
+months later nobody can tell you who spoke or what was covered.
 
-Most college club websites are noticeboards. They list an event, go quiet for a
-term, and leave nothing behind. The chapter had the opposite problem: real
-sessions were happening, with real speakers, and the only trace of them was a
-poster in a WhatsApp group that scrolled away in a week.
+So I built somewhere for them to live. Each session keeps its poster, speaker,
+venue and topics on its own page. If a junior wants to see what the chapter has
+been doing, or a speaker wants to link to their talk, or next year's office
+bearers want to know what happened before them, it's there.
 
-So this site is built as a **record**, not an announcement board. Every session
-keeps its poster, its speaker, its venue and what it covered. A student who
-finds the chapter in their third year can see what the second year did. A
-speaker can point at a page. A faculty coordinator can use it as documentation.
-Next year's office bearers inherit something they can add to rather than
-rebuild.
-
-Two smaller goals shaped it as much as that one:
-
-- **It had to look like it was made on purpose.** Students judge a chapter by
-  its front page. A template with a stock hero says nobody cared.
-- **It had to survive a handover.** Whoever holds this next may not write React.
-  Adding a session should mean editing one file, not touching a component.
+I also wanted it to look like someone actually cared. Students judge a chapter
+by whatever page they land on first, and a stock template says nobody did.
 
 ## Versions
 
-Shipped in versions, the way a product is, rather than tinkered with forever
-and never shown. v1 goes live because a working site that exists beats a
-perfect one that doesn't.
+**v1 is what's live now.** Hero, current session, photographs from the sessions,
+the full event archive with a page per session, the team, a few takeaways, and
+the social links. It's static, it loads fast, and everything on it is real
+content rather than placeholder text.
 
-**v1 — live now.** The whole chapter in one place: hero, current session, real
-photographs, the full event archive with individual session pages, the team,
-distilled insights, and the social channels. Static, fast, accessible, indexed.
-Everything on it is real.
+**v2 is what I'm working towards.** I'm still learning both design and
+development, and building v1 showed me where I'm weak in each. Things I want to
+fix next:
 
-**v2 — next.** I am still building both halves of this, the design eye and the
-engineering. v1 taught me where each one is thin. v2 comes back sharper and
-cleaner, not bigger:
+- Typography and spacing. There are decisions in here I'd make differently now.
+- A written-down design system, so whoever takes this over has rules instead of
+  guesses.
+- Speaker names and proper write-ups for the older sessions.
+- A real domain instead of the deployment subdomain.
+- Search across sessions, once there are enough of them to need it.
 
-- Tighter type and spacing; v1 still carries a few decisions I would not make
-  again
-- A design system written down, so the next maintainer inherits rules and not
-  guesses
-- Real speaker names and per-session write-ups on the older records
-- A proper domain, replacing the deployment subdomain
-- Search and filtering across sessions once the archive is large enough to need it
+If you're in the chapter and want something in v2, open an issue.
 
-Anything a chapter member wants in v2 belongs in the issues tab.
+## Design decisions
 
-## Why it looks the way it does
+I went for an editorial layout — large headings, a lot of whitespace, few
+things per screen. Club websites usually go the other way and cram six widgets
+above the fold. Keeping it sparse was easier to build and looks better.
 
-**Editorial, not dashboard.** Big type, wide margins, a small number of things
-per screen. Club sites usually fail by cramming — six widgets and a carousel
-above the fold. Restraint reads as confidence, and it costs nothing to build.
+Each section does one job. The hero says who we are, the next section shows
+what's happening now, then the photographs, then the team, then the takeaways.
+Someone who leaves after two screens still knows what the chapter is.
 
-**One idea per screen.** The hero says who we are. The next section says what is
-happening now. Then evidence, then people, then ideas. A visitor who leaves
-after two screens still knows what the chapter is.
+The photographs do most of the work. A packed lab with a speaker in front of a
+slide says more about an active chapter than any description would, so real
+photos get more space than anything else on the page. Event posters are shown
+whole and uncropped, since the poster is what people actually saw.
 
-**Photographs carry the credibility.** Not illustrations, not icons. A packed
-lab with a speaker mid-talk proves more than any adjective. The real posters are
-shown whole, uncropped, because the poster *is* the record.
+There are four typefaces, each doing something specific: Instrument Sans for
+the interface, Playfair Display for section headings, Inter for a couple of
+words in the hero, Great Vibes for the two script words. Colour is almost
+entirely navy on cream, so the hierarchy comes from size and spacing.
 
-**Type does the work.** Four faces, each with a job:
-Instrument Sans carries the interface, Playfair Display gives section headings
-an editorial weight, Inter picks out single words for contrast, and Great Vibes
-handles the two accent words in the hero. Colour stays almost entirely navy on
-cream, so hierarchy comes from size and space instead of decoration.
+Animation is kept small. Sections fade and rise 20px as they come into view,
+the cards have a metallic edge that shifts while you scroll, and in-page jumps
+use a fixed 520ms scroll. That last one exists because Chrome's own smooth
+scroll gets slower the further it travels, and jumping to the bottom of the page
+felt broken. Everything is disabled under `prefers-reduced-motion`.
 
-**Motion indicates hierarchy, it does not decorate.** A 20px fade-and-rise as
-sections enter. A metallic edge on the cards that shifts as the page scrolls and
-holds still when it stops. A fixed-duration scroll for in-page jumps, because
-the browser's own smooth scroll stretches with distance and a jump to the bottom
-of the page starts to feel broken. Everything collapses to static under
-`prefers-reduced-motion`.
+## Tech stack
 
-## Why this stack
+**Next.js 16 with the App Router.** Every page is prerendered to static HTML at
+build time. No server to run, no database, and it can be hosted for free. The
+event pages come from `generateStaticParams` over a data file, so adding a
+session adds a page.
 
-| Choice | Reason |
-| --- | --- |
-| **Next.js 16, App Router** | Every route prerenders to static HTML. No server, no database, no runtime cost, and the whole site can be hosted free on GitHub Pages. File-based routing means `/events/[slug]` comes from a data file rather than a router config. |
-| **React 19 + TypeScript** | Types are the handover documentation. `ChapterEvent` tells the next maintainer exactly which fields an event needs, and the build fails if one is missing — better than discovering it in production. |
-| **Tailwind CSS 4** | Design tokens live in one `@theme` block: palette, fluid type scale, spacing rhythm, easing. Changing the brand is editing a dozen lines, not hunting through stylesheets. Styling next to the markup also means deleting a component deletes its CSS. |
-| **Motion (Framer Motion)** | Used for exactly two things: scroll reveals and the college dialog. Everything else is CSS. A whole animation library for a fade would not be worth its bytes. |
-| **next/font** | Fonts are self-hosted and inlined at build time. No render-blocking request to Google, no layout shift when they land. |
-| **Static export** | Nothing to keep running, nothing to pay for, nothing to patch. A student site should still be up in three years without anyone maintaining a server. |
-| **No CMS** | A CMS is a login, a subscription and an account handover. Content lives in typed files in the repo, so editing is a pull request and the history is the audit trail. |
+**React 19 and TypeScript.** The types double as documentation for whoever
+maintains this next. `ChapterEvent` lists exactly what an event needs, and the
+build breaks if something's missing.
 
-## Content lives in data, not components
+**Tailwind CSS 4.** All the design tokens sit in one `@theme` block — colours,
+the fluid type scale, spacing, easing. Changing the look means editing that
+block. Deleting a component also deletes its styles, which matters when you're
+still figuring out the layout.
 
-Nothing that reads as copy is written into a component. To change the site, edit
-these:
+**Motion** for scroll reveals and the college dialog. Everything else is plain
+CSS, since pulling in an animation library for a fade isn't worth the bytes.
 
-| File | Holds |
-| --- | --- |
-| `data/site.ts` | Chapter name, canonical URL, social links, navigation |
-| `data/events.ts` | Every session, and which one is `featured` |
-| `data/team.ts` | Office bearers, faculty first |
-| `data/insights.ts` | The "Ideas worth taking with you" entries |
+**next/font** self-hosts and inlines the four typefaces at build time, so
+there's no request to Google and no shift when they load.
 
-Adding an event to `data/events.ts` creates its card, its `/events/[slug]` page,
-its metadata and its sitemap entry. No other file changes.
+**No CMS.** A CMS means an account and a subscription to hand over every year.
+Content lives in typed files in the repo instead, so changes go through pull
+requests and the git history shows who changed what.
 
-A team member with no `name` renders as a quiet "Announcing soon" card on
-purpose, so the grid stays whole while a position is being filled. Categories
-listed in `upcomingCategories` show a coming-soon notice instead of an empty
-grid.
+## Editing the content
+
+None of the copy is written inside components. To change the site, edit:
+
+- `data/site.ts` — chapter name, URL, social links, navigation
+- `data/events.ts` — every session, and which one is featured
+- `data/team.ts` — office bearers, faculty first
+- `data/insights.ts` — the takeaways section
+
+Adding an event to `data/events.ts` gives you the card, the page at
+`/events/[slug]`, the metadata and the sitemap entry. Nothing else to touch.
+
+A team member without a `name` shows up as "Announcing soon", so the grid stays
+even while a role is unfilled. Categories in `upcomingCategories` show a
+coming-soon notice instead of an empty page.
 
 ## Running it
 
 ```bash
 npm install
-npm run dev     # http://localhost:8790
+npm run dev     # localhost:8790
 npm run build
 npm run lint
 ```
 
 ## Deploying
 
-Two targets from one config, switched by environment variables.
+The same config builds for two places, switched by environment variables.
 
-**GitHub Pages** is automatic: pushing to `main` runs
-`.github/workflows/deploy-pages.yml`, which builds a static export under the
-repository's subpath and publishes it.
+Vercel is the live site and deploys on every push to `main`. GitHub Pages runs
+as a backup from `.github/workflows/deploy-pages.yml`, built with `noindex` so
+Google doesn't treat the two as duplicates of each other.
 
-**Vercel**: import the repository and deploy with no settings changed.
-
-| Variable | Pages | Vercel |
+| Variable | Vercel | Pages |
 | --- | --- | --- |
-| `STATIC_EXPORT` | `true` | unset |
-| `NEXT_PUBLIC_BASE_PATH` | `/CSI-SRMISTVDP` | unset |
-| `NEXT_PUBLIC_SITE_URL` | the Pages URL | the production domain |
+| `STATIC_EXPORT` | unset | `true` |
+| `NEXT_PUBLIC_BASE_PATH` | unset | `/CSI-SRMISTVDP` |
+| `NEXT_PUBLIC_SITE_URL` | production domain | the Pages URL |
+| `NEXT_PUBLIC_NOINDEX` | unset | `true` |
 
-Anything hand-written that points at `/public` — a raw `<img>`, a CSS `url()` —
-must go through `asset()` in `lib/asset.ts`, or it will 404 under the Pages
-subpath. `next/image` and `next/link` handle it themselves.
+If you hand-write anything pointing at `/public` — a raw `<img>`, a CSS `url()`
+— run it through `asset()` in `lib/asset.ts`, or it'll 404 on Pages where the
+site sits under a subpath. `next/image` and `next/link` handle that themselves.
 
 ## Images
 
-`lib/media.ts` decides per file: vector art is served straight from `/public`,
-since the optimizer cannot improve an SVG, while photographs go through
-`next/image` for AVIF and WebP. The `Img` wrapper in `components/ui/Img.tsx`
-applies both that rule and the base path, because `next/image` only rewrites
-paths for images it optimizes.
+`lib/media.ts` decides per file. SVGs are served straight from `/public`, since
+the optimizer can't improve a vector, and photographs go through `next/image`
+for AVIF and WebP. The `Img` wrapper in `components/ui/Img.tsx` applies that
+rule plus the base path, because `next/image` only rewrites paths for images it
+optimizes — an unoptimized one 404s on Pages otherwise. That took me a while to
+work out.
 
-Two scripts prepare the brand art:
+Three scripts prepare the artwork:
 
 ```bash
-python3 scripts/prepare-brand.py      # knocks white out of the two seals, resizes the skies
+python3 scripts/prepare-brand.py             # cuts white out of the two seals, resizes the skies
 python3 scripts/knockout-credit.py <image>   # lifts the handwritten credit off its background
+python3 scripts/make-og.py                   # builds the link preview card
 ```
 
-Both need Pillow and numpy. Sources live in `scripts/source/`.
+They need Pillow and numpy. Originals are in `scripts/source/`.
 
 ## Accessibility
 
-Semantic landmarks, a skip link, a visible focus ring on every interactive
-element, `aria-current` on the active navigation item, dialog focus management,
-and body text held at or above the 4.5:1 contrast ratio against the cream
-background. Every animation on the site is skipped under
+Semantic landmarks, a skip link, visible focus rings, `aria-current` on the
+active nav item, focus handling in the dialog, and body text at or above 4.5:1
+contrast against the cream background. Every animation is skipped under
 `prefers-reduced-motion`.
 
 ## Artwork
 
-Everything visual on the site is the chapter's own.
-
-- **Hero sky** — generated by R. Magdaleena using ChatGPT 5.6 Sol, then art
-  directed into two crops: a tall one for phones, a wide one for laptops, so a
-  device only downloads the frame it needs.
-- **Session photographs** — taken at the sessions themselves.
-- **Event posters** — the chapter's own announcement posters, shown whole and
-  uncropped, because the poster is the record.
-- **Handwritten credit** — written by hand, then lifted off its background by
-  `scripts/knockout-credit.py` and repainted in the palette navy.
+- The hero sky was generated with ChatGPT 5.6 Sol, then cropped two ways: tall
+  for phones, wide for laptops, so a phone doesn't download the desktop frame.
+- Session photographs were taken at the sessions.
+- Event posters are the chapter's own.
+- The credit in the footer is handwritten, then cleaned up by
+  `scripts/knockout-credit.py`.
 
 ---
 
