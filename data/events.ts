@@ -34,6 +34,22 @@ export type ChapterEvent = {
  */
 export const events: ChapterEvent[] = [
   {
+    slug: "beyond-the-cgpa",
+    title: "Beyond the CGPA: Building a Tech Career That Actually Works",
+    date: "2026-08-27",
+    category: "Knowledge Session",
+    description: "Knowledge Updates Seminar Series #8.",
+    summary:
+      "Knowledge Updates Seminar Series #8, held with IEEE CS. What a technology career is built on once marks stop being the measure, from a final-year student already working across the full software development life cycle.",
+    speaker: {
+      name: "Hameed Salihu",
+      role: "Student, Department of CSE, SRMIST Vadapalani",
+    },
+    venue: "CSE Lab 2, 2:00 to 3:00 PM",
+    image: "/images/events/beyond-the-cgpa.jpg",
+    featured: true,
+  },
+  {
     slug: "vibe-coding",
     title: "Code Less, Create More: The Vibe Coding Revolution",
     date: "2026-08-13",
@@ -65,7 +81,6 @@ export const events: ChapterEvent[] = [
       text: "AI can accelerate development. Judgment still belongs to the developer.",
       attribution: "Closing note from the session",
     },
-    featured: true,
   },
   {
     slug: "gsoc-roadmap",
