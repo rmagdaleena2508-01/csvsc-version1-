@@ -61,7 +61,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-8 border-t border-navy/10 pt-8 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
+        <div className="flex flex-col items-center gap-8 border-t border-navy/10 pt-8 text-center sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:text-left">
           <p className="text-[0.8125rem] tracking-[-0.005em] text-slate-blue">
             {site.legalName}
           </p>
@@ -73,7 +73,7 @@ export function Footer() {
             alt="Designed and developed by R. Magdaleena, Vice President at CSI SRMIST VDP"
             width={1574}
             height={235}
-            className="w-full max-w-[19rem] opacity-80 sm:max-w-[23rem]"
+            className="mx-auto w-full max-w-[19rem] opacity-80 sm:mx-0 sm:max-w-[23rem]"
           />
         </div>
       </div>
