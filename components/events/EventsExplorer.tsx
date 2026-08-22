@@ -10,6 +10,12 @@ import {
   type EventCategory,
 } from "@/data/events";
 
+const pendingCopy: Partial<Record<EventCategory, string>> = {
+  Workshop: "Our next workshops are being planned.",
+  Discussion: "Our next discussions are being planned.",
+  Industry: "Industry sessions are being lined up for this term.",
+};
+
 export function EventsExplorer({ events }: { events: ChapterEvent[] }) {
   const [filter, setFilter] = useState<"All" | EventCategory>("All");
 
@@ -59,9 +65,8 @@ export function EventsExplorer({ events }: { events: ChapterEvent[] }) {
               Coming soon
             </h3>
             <p className="text-lead max-w-[46ch] text-slate-blue text-pretty">
-              {filter === "Workshop"
-                ? "Our next workshops are being planned. Follow the chapter on LinkedIn and Instagram to hear about them first."
-                : "Industry sessions are being lined up for this term. Follow the chapter on LinkedIn and Instagram to hear about them first."}
+              {pendingCopy[filter as EventCategory]} Follow the chapter on
+              LinkedIn and Instagram to hear about them first.
             </p>
           </div>
         ) : (

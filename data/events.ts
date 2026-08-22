@@ -216,6 +216,7 @@ export const events: ChapterEvent[] = [
 /** Categories with nothing published yet — their filter shows a notice. */
 export const upcomingCategories: readonly EventCategory[] = [
   "Workshop",
+  "Discussion",
   "Industry",
 ];
 
