@@ -5,37 +5,42 @@ export type Insight = {
   href?: string;
 };
 
-/** One idea per recent session, drawn from what the session set out to cover. */
+/**
+ * Each entry is taken from what the session's own poster or opening slide
+ * printed: topics covered, the speaker's stated background, the framing on
+ * screen. Nothing here is a paraphrase of something nobody said.
+ */
 export const insights: Insight[] = [
   {
     source: "From Code Less, Create More",
     statement:
-      "Writing less code only helps if you still understand all of it.",
+      "Coding is shifting from manual implementation to AI-assisted development.",
     detail:
-      "Assistants shrink the typing, not the responsibility. What you ship still has to be read, questioned and defended as if you had written every line yourself.",
+      "The opening slide set out the change directly: developers are increasingly problem solvers and decision makers rather than typists, and practical evidence of what you can build now counts for more than a list of what you know.",
   },
   {
-    source: "From Your Roadmap to Becoming a GSoC Contributor",
-    statement: "Open source is a route, not a lottery.",
+    source: "From Communication Skills, Side Hustles and Freelancing",
+    statement:
+      "Communication creates opportunities faster than skills alone.",
     detail:
-      "Contributors get picked because they showed up early, read the codebase and started small. That path can be planned, which is what a roadmap is for.",
+      "The session went from there into side hustles that actually work during college, and how a conversation turns into income: freelancing basics, and pricing the work once someone says yes.",
   },
   {
     source: "From Community-Led Innovation",
-    statement: "Communities build what no single contributor could.",
+    statement: "Open source impact is community work, not solo work.",
     detail:
-      "Open source works because people who will never meet keep improving the same thing. Real impact comes from that accumulation, not from one brilliant commit.",
+      "Led by the organizer of AI Geeks Chennai, the session looked at how a technology community forms, keeps going, and produces something that reaches well beyond the people in the room.",
   },
   {
-    source: "From Communication Skills and Freelancing",
-    statement: "Communication turns a skill into an opportunity.",
+    source: "From Your Roadmap to Becoming a GSoC Contributor",
+    statement: "Contributing to open source is a route you can plan.",
     detail:
-      "Being able to do the work is the first half. Being able to explain it, price it and follow up on it is what turns a conversation into income.",
+      "Walked through by an engineer working across cloud-native tooling, DevOps and testing, who advocates for open source, follows CNCF closely, and writes and speaks about the work in public.",
   },
   {
     source: "From Decode the Interview",
-    statement: "An interview is a process you can read, not a verdict.",
+    statement: "The clearest account of an interview comes from someone who just sat one.",
     detail:
-      "Interviewers are checking how you think under pressure and how you handle not knowing. Both of those are practisable, which makes the room far less mysterious.",
+      "Run by the chapter's own President rather than a guest, which made the session a first-hand account of the process instead of general advice about it.",
   },
 ];
