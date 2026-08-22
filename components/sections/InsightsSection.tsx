@@ -14,7 +14,7 @@ export function InsightsSection() {
         <Reveal>
           <h2
             id="insights-heading"
-            className="text-headline max-w-[14ch] font-normal text-navy text-balance"
+            className="display-serif text-headline max-w-[14ch] font-normal text-navy text-balance"
           >
             Ideas worth taking with you
           </h2>

@@ -59,7 +59,7 @@ export function TeamSection({ members = team }: { members?: typeof team }) {
           <div>
             <h2
               id="team-heading"
-              className="inter-accent text-headline font-normal text-navy"
+              className="display-serif text-headline font-normal text-navy"
             >
               Meet the Team
             </h2>

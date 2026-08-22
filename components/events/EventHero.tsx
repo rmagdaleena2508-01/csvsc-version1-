@@ -43,7 +43,7 @@ export function EventHero({ event }: { event: ChapterEvent }) {
         ))}
       </dl>
 
-      <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] bg-sky-100 ring-1 ring-navy/8 sm:mt-16">
+      <div className="metal-frame relative mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] bg-sky-100 sm:mt-16">
         <Image
           src={event.image}
           alt={`${event.title} — photograph from the session`}

@@ -3,10 +3,12 @@ import {
   Great_Vibes,
   Instrument_Sans,
   Inter,
+  Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ShineDriver } from "@/components/ui/ShineDriver";
 import { site } from "@/data/site";
 
 const instrument = Instrument_Sans({
@@ -21,6 +23,14 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Section headings below the hero.
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -73,7 +83,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${script.variable}`}>
+    <html lang="en-IN" className={`${instrument.variable} ${inter.variable} ${playfair.variable} ${script.variable}`}>
       <body className="grain antialiased">
         <a
           href="#main"
@@ -81,6 +91,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <ShineDriver />
         <Navbar />
         <main id="main">{children}</main>
         <Footer />

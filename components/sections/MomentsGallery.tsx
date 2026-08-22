@@ -39,7 +39,7 @@ function Frame({
 }) {
   return (
     <div
-      className={`group relative ${ratio} overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8 ${className}`}
+      className={`metal-frame group relative ${ratio} overflow-hidden rounded-3xl bg-sky-100 ${className}`}
     >
       <Image
         src={src}
@@ -63,7 +63,7 @@ export function MomentsGallery() {
         <Reveal className="lg:col-span-5 lg:self-end">
           <h2
             id="moments-heading"
-            className="text-headline max-w-[13ch] font-normal text-navy text-balance"
+            className="display-serif text-headline max-w-[13ch] font-normal text-navy text-balance"
           >
             Learning looks better in action.
           </h2>

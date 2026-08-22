@@ -40,14 +40,13 @@ export function SocialCTA() {
         <Reveal>
           <h2
             id="social-heading"
-            className="text-display max-w-[11ch] font-normal text-cream text-balance"
+            className="display-serif text-display max-w-[11ch] font-normal text-cream text-balance"
           >
             Keep learning with CSI
           </h2>
           <p className="text-lead mt-8 max-w-[52ch] text-sky-200 text-pretty">
-            Our sessions don&rsquo;t end when the event does. We share key
-            takeaways, event insights, opportunities and updates through our
-            social channels.
+            The event ends. The learning doesn&rsquo;t. We share key takeaways,
+            event highlights, opportunities and updates on our social channels.
           </p>
         </Reveal>
 
@@ -58,7 +57,7 @@ export function SocialCTA() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col justify-between gap-10 rounded-[1.75rem] bg-cream/6 p-8 ring-1 ring-cream/12 transition-colors duration-500 hover:bg-cream/10 sm:p-10"
+                className="metal-frame group flex h-full flex-col justify-between gap-10 rounded-[1.75rem] bg-cream/6 p-8 transition-colors duration-500 hover:bg-cream/10 sm:p-10"
               >
                 <div>
                   <span className="grid size-11 place-items-center rounded-full bg-cream/10 text-cream ring-1 ring-cream/15">

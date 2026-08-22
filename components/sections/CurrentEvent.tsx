@@ -23,7 +23,7 @@ export function CurrentEvent() {
         <div className="flex flex-wrap items-baseline justify-between gap-4 border-t border-navy/12 pt-8">
           <h2
             id="happening-heading"
-            className="text-headline font-normal text-navy"
+            className="display-serif text-headline font-normal text-navy"
           >
             Happening this month
           </h2>
@@ -37,7 +37,7 @@ export function CurrentEvent() {
       </Reveal>
 
       <Reveal index={1}>
-        <article className="group mt-12 grid grid-cols-1 items-center gap-10 rounded-[2rem] bg-cream p-6 ring-1 ring-navy/8 transition-shadow duration-500 ease-[var(--ease-editorial)] hover:shadow-[0_40px_90px_-60px_rgba(18,38,92,0.65)] sm:p-8 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:p-10">
+        <article className="metal-frame group mt-12 grid grid-cols-1 items-center gap-10 rounded-[2rem] bg-cream p-6 transition-shadow duration-500 ease-[var(--ease-editorial)] hover:shadow-[0_40px_90px_-60px_rgba(18,38,92,0.65)] sm:p-8 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:p-10">
           <div className="flex flex-col gap-6">
             <span className="text-eyebrow font-medium tracking-[0.18em] text-slate-blue uppercase">
               {event.category}

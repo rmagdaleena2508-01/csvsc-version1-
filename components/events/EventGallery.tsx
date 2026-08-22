@@ -14,7 +14,7 @@ export function EventGallery({
     <section aria-labelledby="gallery-heading" className="py-section">
       <h2
         id="gallery-heading"
-        className="text-headline font-normal text-navy"
+        className="display-serif text-headline font-normal text-navy"
       >
         Event gallery
       </h2>
@@ -23,7 +23,7 @@ export function EventGallery({
         {images.map((src, i) => (
           <Reveal as="li" key={src} index={i % 3}>
             <div
-              className={`group relative overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8 ${
+              className={`metal-frame group relative overflow-hidden rounded-3xl bg-sky-100 ${
                 i === 0 ? "aspect-[4/3]" : "aspect-[4/3]"
               }`}
             >

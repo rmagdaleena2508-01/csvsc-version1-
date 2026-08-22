@@ -57,6 +57,8 @@
 
 :root {
   color-scheme: light;
+  /* Rotated by ShineDriver while the page scrolls. */
+  --shine: 0;
   --background: var(--color-ivory);
   --foreground: var(--color-navy);
 }
@@ -150,6 +152,47 @@ body {
   letter-spacing: 0.005em;
   padding-inline: 0.04em;
   vertical-align: -0.06em;
+}
+
+/* Metallic frame. The ring is painted by a masked pseudo-element rather than a
+   border, so the card keeps its radius and the gradient only ever covers the
+   1.5px edge. Its angle comes from --shine, which moves with the scroll. */
+.metal-frame {
+  position: relative;
+}
+.metal-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from calc(var(--shine) * 1deg) at 50% 50%,
+    #f6fbff,
+    #2b52a8,
+    #d8e9fa,
+    #12265c,
+    #9fd0f5,
+    #1b3a86,
+    #eaf4ff,
+    #2b52a8,
+    #f6fbff
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.display-serif {
+  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  letter-spacing: -0.018em;
 }
 
 .no-scrollbar {

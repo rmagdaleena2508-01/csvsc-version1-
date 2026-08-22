@@ -16,7 +16,7 @@ export function EventCard({ event, priority = false }: Props) {
         href={`/events/${event.slug}`}
         className="flex h-full flex-col rounded-3xl outline-offset-4"
       >
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8">
+        <div className="metal-frame relative aspect-[4/3] overflow-hidden rounded-3xl bg-sky-100">
           <Image
             src={event.image}
             alt={`${event.title} — session photograph`}

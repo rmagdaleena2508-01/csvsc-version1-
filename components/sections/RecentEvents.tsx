@@ -13,7 +13,7 @@ export function RecentEvents() {
         <div className="flex flex-wrap items-baseline justify-between gap-4 border-t border-navy/12 pt-8">
           <h2
             id="recent-heading"
-            className="text-headline font-normal text-navy"
+            className="display-serif text-headline font-normal text-navy"
           >
             Recent sessions
           </h2>
