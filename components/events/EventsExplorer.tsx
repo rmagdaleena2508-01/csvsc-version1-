@@ -2,14 +2,19 @@
 
 import { useMemo, useState } from "react";
 import { EventsGrid } from "./EventsGrid";
+import { CalendarClock } from "lucide-react";
 import {
   eventCategories,
+  upcomingCategories,
   type ChapterEvent,
   type EventCategory,
 } from "@/data/events";
 
 export function EventsExplorer({ events }: { events: ChapterEvent[] }) {
   const [filter, setFilter] = useState<"All" | EventCategory>("All");
+
+  const pending =
+    filter !== "All" && upcomingCategories.includes(filter as EventCategory);
 
   const visible = useMemo(
     () =>
@@ -45,7 +50,23 @@ export function EventsExplorer({ events }: { events: ChapterEvent[] }) {
       </div>
 
       <div className="mt-14">
-        <EventsGrid events={visible} priorityCount={3} />
+        {pending ? (
+          <div className="metal-frame flex flex-col items-start gap-5 rounded-[2rem] bg-cream px-8 py-14 sm:px-12 sm:py-16">
+            <span className="grid size-12 place-items-center rounded-full bg-sky-100 text-navy">
+              <CalendarClock size={20} strokeWidth={1.6} aria-hidden />
+            </span>
+            <h3 className="display-serif text-title font-normal text-navy">
+              Coming soon
+            </h3>
+            <p className="text-lead max-w-[46ch] text-slate-blue text-pretty">
+              {filter === "Workshop"
+                ? "Our next workshops are being planned. Follow the chapter on LinkedIn and Instagram to hear about them first."
+                : "Industry sessions are being lined up for this term. Follow the chapter on LinkedIn and Instagram to hear about them first."}
+            </p>
+          </div>
+        ) : (
+          <EventsGrid events={visible} priorityCount={3} />
+        )}
       </div>
     </>
   );
