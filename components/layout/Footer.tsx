@@ -3,9 +3,9 @@ import { Img as Image } from "@/components/ui/Img";
 import { site } from "@/data/site";
 
 const columns = [
+  { label: "About", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Team", href: "/team" },
-  { label: "About", href: "/about" },
 ];
 
 export function Footer() {
@@ -61,9 +61,18 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-navy/10 pt-8 text-[0.8125rem] tracking-[-0.005em] text-slate-blue sm:flex-row sm:items-center sm:justify-between">
-          <p>{site.legalName}</p>
-          <p>Designed and developed by Magdaleena R, Vice President @ CSI SRMIST</p>
+        <div className="flex flex-col gap-8 border-t border-navy/10 pt-8 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
+          <p className="text-[0.8125rem] tracking-[-0.005em] text-slate-blue">
+            {site.legalName}
+          </p>
+          {/* Handwritten credit, kept as artwork rather than set in type. */}
+          <Image
+            src="/images/brand/credit.jpg"
+            alt="Designed and developed by R. Magdaleena, Vice President at CSI SRMIST VDP"
+            width={1200}
+            height={222}
+            className="w-full max-w-[22rem] rounded-lg mix-blend-multiply sm:max-w-[26rem]"
+          />
         </div>
       </div>
     </footer>
