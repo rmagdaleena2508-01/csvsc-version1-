@@ -191,7 +191,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className={`glass grid size-11 place-items-center rounded-full text-navy backdrop-blur-2xl backdrop-saturate-150 lg:hidden ${
+            className={`glass glass-orb grid size-11 place-items-center rounded-full text-navy backdrop-blur-2xl backdrop-saturate-150 transition-transform duration-300 ease-[var(--ease-editorial)] active:scale-95 lg:hidden ${
               scrolled ? "glass-solid" : ""
             }`}
           >
