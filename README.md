@@ -2,7 +2,7 @@
 
 Website for the Computer Society of India Student Chapter at SRMIST Vadapalani.
 
-Live at https://csi-srmistvdp.vercel.app
+Live at https://csi-srmistvdp.vercel.app/
 
 ## What this is for
 
