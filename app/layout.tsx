@@ -68,13 +68,14 @@ export const metadata: Metadata = {
       {
         url: "/images/brand/og.jpg",
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: `${site.name}, ${site.institution}`,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    // Square card to match the preview image; a wide card would crop it.
+    card: "summary",
     title: `${site.name} | ${site.institution}`,
     description: site.description,
     images: ["/images/brand/og.jpg"],
