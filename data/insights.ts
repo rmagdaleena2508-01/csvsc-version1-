@@ -5,30 +5,37 @@ export type Insight = {
   href?: string;
 };
 
+/** One idea per recent session, drawn from what the session set out to cover. */
 export const insights: Insight[] = [
   {
-    source: "From our Vibe Coding session",
+    source: "From Code Less, Create More",
     statement:
-      "AI can accelerate development. Judgment still belongs to the developer.",
+      "Writing less code only helps if you still understand all of it.",
     detail:
-      "An assistant will happily produce code that compiles, passes a quick glance and fails in production. The reading, the questioning and the responsibility do not transfer.",
+      "Assistants shrink the typing, not the responsibility. What you ship still has to be read, questioned and defended as if you had written every line yourself.",
   },
   {
-    source: "From our Generative AI Workshop",
-    statement: "A vague prompt is a vague specification.",
+    source: "From Your Roadmap to Becoming a GSoC Contributor",
+    statement: "Open source is a route, not a lottery.",
     detail:
-      "Most disappointing model output traces back to an under-specified request. Writing a clear prompt is the same skill as writing a clear ticket.",
+      "Contributors get picked because they showed up early, read the codebase and started small. That path can be planned, which is what a roadmap is for.",
   },
   {
-    source: "From our Industry Interaction",
-    statement: "Depth in one stack beats a résumé listing twelve.",
+    source: "From Community-Led Innovation",
+    statement: "Communities build what no single contributor could.",
     detail:
-      "Practitioners consistently said the same thing: they hire for the ability to go deep and communicate clearly, not for the length of a technology list.",
+      "Open source works because people who will never meet keep improving the same thing. Real impact comes from that accumulation, not from one brilliant commit.",
   },
   {
-    source: "From our Security Primer",
-    statement: "Most breaches are boring mistakes, not clever exploits.",
+    source: "From Communication Skills and Freelancing",
+    statement: "Communication turns a skill into an opportunity.",
     detail:
-      "Hardcoded secrets, missing access checks, unvalidated input. The defence is a review habit long before it is a security tool.",
+      "Being able to do the work is the first half. Being able to explain it, price it and follow up on it is what turns a conversation into income.",
+  },
+  {
+    source: "From Decode the Interview",
+    statement: "An interview is a process you can read, not a verdict.",
+    detail:
+      "Interviewers are checking how you think under pressure and how you handle not knowing. Both of those are practisable, which makes the room far less mysterious.",
   },
 ];
