@@ -1,49 +1,62 @@
 """
-Lifts the handwritten credit off its paper.
+Lifts the handwritten credit off whatever it was shot or drawn on.
 
-The sheet is unevenly lit, so a flat threshold either eats the pale green ink
-or leaves a grey rectangle. Instead the paper is estimated with a heavy blur
-and each pixel is measured against its own local background: ink is whatever
-sits darker or more saturated than the paper around it.
+Works either polarity: ink darker than the sheet (a photograph of paper) or
+lighter than it (light writing on a dark canvas). The background is estimated
+with a heavy blur, so each pixel is judged against its own surroundings rather
+than one global threshold, which is what uneven lighting and vignetting break.
+
+The result is repainted in a single brand ink, so the strokes match the palette
+exactly and carry no halo from the original background.
 """
 from pathlib import Path
+import sys
 
 import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
-SRC = Path.home() / "Downloads" / "WhatsApp Image 2026-08-22 at 13.22.19.jpeg"
+SRC = Path(sys.argv[1] if len(sys.argv) > 1 else "")
 OUT = Path("public/images/brand/credit.png")
+INK = (18, 38, 92)          # --color-navy
+WIDTH = 1600
+PAD = 8                     # breathing room left after trimming, in pixels
 
 img = ImageOps.exif_transpose(Image.open(SRC)).convert("RGB")
-width = 1400
-img = img.resize((width, round(img.height * width / img.width)), Image.LANCZOS)
+img = img.resize((WIDTH, round(img.height * WIDTH / img.width)), Image.LANCZOS)
 
 rgb = np.asarray(img, dtype=np.float32) / 255.0
-paper = np.asarray(img.filter(ImageFilter.GaussianBlur(45)), dtype=np.float32) / 255.0
+bg = np.asarray(img.filter(ImageFilter.GaussianBlur(45)), dtype=np.float32) / 255.0
 
-# How much darker than the local paper, per channel; ink shows on its darkest.
-darkness = np.clip(1.0 - rgb / np.maximum(paper, 1e-3), 0.0, 1.0).max(axis=2)
+# Key on colour, not brightness. The writing is blue; every artefact in the
+# source — vignetting, banding, a lighter patch of canvas — is neutral, so a
+# brightness threshold picks those up as ink and a colour one cannot.
+def blueness(a):
+    return a[..., 2] - np.maximum(a[..., 0], a[..., 1])
 
-# Coloured ink can sit as bright as paper, so saturation carries it too.
-mx = rgb.max(axis=2)
-mn = rgb.min(axis=2)
-saturation = np.where(mx > 1e-3, (mx - mn) / np.maximum(mx, 1e-3), 0.0)
-paper_sat_mx = paper.max(axis=2)
-paper_sat_mn = paper.min(axis=2)
-paper_sat = np.where(
-    paper_sat_mx > 1e-3, (paper_sat_mx - paper_sat_mn) / np.maximum(paper_sat_mx, 1e-3), 0.0
-)
-extra_sat = np.clip(saturation - paper_sat, 0.0, 1.0)
+signal = np.clip(blueness(rgb) - blueness(bg), 0.0, 1.0)
 
-alpha = np.clip(np.maximum(darkness * 2.6, extra_sat * 2.2), 0.0, 1.0)
-alpha[alpha < 0.18] = 0.0          # kill paper grain and pencil ghosts
-alpha = np.clip((alpha - 0.18) / 0.82, 0.0, 1.0)
+alpha = np.clip(signal * 5.0, 0.0, 1.0)
+floor = 0.12
+alpha[alpha < floor] = 0.0
+alpha = np.clip((alpha - floor) / (1.0 - floor), 0.0, 1.0)
 
-# Rebuild the ink colour as if it were laid on white, so the strokes keep their
-# hue instead of picking up the paper's warmth.
-ink = np.clip(1.0 - (1.0 - rgb) / np.maximum(alpha[..., None], 1e-3), 0.0, 1.0)
-ink = np.where(alpha[..., None] > 0, ink, 1.0)
+out = np.zeros((*alpha.shape, 4), dtype=np.float32)
+out[..., 0] = INK[0] / 255.0
+out[..., 1] = INK[1] / 255.0
+out[..., 2] = INK[2] / 255.0
+out[..., 3] = alpha
 
-out = np.dstack([ink, alpha])
-Image.fromarray((out * 255).astype(np.uint8), mode="RGBA").save(OUT, optimize=True)
-print(OUT, img.size, OUT.stat().st_size // 1024, "KB")
+ink = Image.fromarray((out * 255).astype(np.uint8), mode="RGBA")
+
+# Trim to the writing itself. Left-over margin is what made the last version
+# sit visually off-centre inside its own box.
+box = ink.split()[-1].getbbox()
+if box:
+    left = max(0, box[0] - PAD)
+    top = max(0, box[1] - PAD)
+    right = min(ink.width, box[2] + PAD)
+    bottom = min(ink.height, box[3] + PAD)
+    ink = ink.crop((left, top, right, bottom))
+
+ink.save(OUT, optimize=True)
+print(OUT, ink.size, OUT.stat().st_size // 1024, "KB")

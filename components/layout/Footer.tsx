@@ -71,9 +71,9 @@ export function Footer() {
           <Image
             src="/images/brand/credit.png"
             alt="Designed and developed by R. Magdaleena, Vice President at CSI SRMIST VDP"
-            width={1400}
-            height={259}
-            className="w-full max-w-[22rem] sm:max-w-[26rem]"
+            width={1574}
+            height={235}
+            className="w-full max-w-[19rem] opacity-80 sm:max-w-[23rem]"
           />
         </div>
       </div>
