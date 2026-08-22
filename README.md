@@ -28,6 +28,31 @@ Two smaller goals shaped it as much as that one:
 - **It had to survive a handover.** Whoever holds this next may not write React.
   Adding a session should mean editing one file, not touching a component.
 
+## Versions
+
+Shipped in versions, the way a product is, rather than tinkered with forever
+and never shown. v1 goes live because a working site that exists beats a
+perfect one that doesn't.
+
+**v1 — live now.** The whole chapter in one place: hero, current session, real
+photographs, the full event archive with individual session pages, the team,
+distilled insights, and the social channels. Static, fast, accessible, indexed.
+Everything on it is real.
+
+**v2 — next.** I am still building both halves of this, the design eye and the
+engineering. v1 taught me where each one is thin. v2 comes back sharper and
+cleaner, not bigger:
+
+- Tighter type and spacing; v1 still carries a few decisions I would not make
+  again
+- A design system written down, so the next maintainer inherits rules and not
+  guesses
+- Real speaker names and per-session write-ups on the older records
+- A proper domain, replacing the deployment subdomain
+- Search and filtering across sessions once the archive is large enough to need it
+
+Anything a chapter member wants in v2 belongs in the issues tab.
+
 ## Why it looks the way it does
 
 **Editorial, not dashboard.** Big type, wide margins, a small number of things
@@ -153,11 +178,6 @@ Everything visual on the site is the chapter's own.
   uncropped, because the poster is the record.
 - **Handwritten credit** — written by hand, then lifted off its background by
   `scripts/knockout-credit.py` and repainted in the palette navy.
-
-## Still to fill in
-
-- Speaker names on the older event records
-- Per-session LinkedIn links for the insights
 
 ---
 
