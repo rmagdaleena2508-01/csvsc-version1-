@@ -35,15 +35,18 @@ export type ChapterEvent = {
 export const events: ChapterEvent[] = [
   {
     slug: "vibe-coding",
-    title: "Vibe Coding: Building Software with AI",
+    title: "Code Less, Create More: The Vibe Coding Revolution",
     date: "2026-08-13",
-    category: "Workshop",
-    description: "Exploring AI-assisted software development.",
+    category: "Knowledge Session",
+    description: "Knowledge Updates Seminar Series #6.",
     summary:
       "A session exploring AI-assisted development, its advantages, limitations and the responsibility developers still carry. We wrote code alongside an assistant, then read every line back critically.",
-    speaker: { name: "Guest Speaker", role: "Software Engineer" },
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/vibe-coding.svg",
+    speaker: {
+      name: "Jaiarthi",
+      role: "III Year CSE, SRM Institute of Science and Technology",
+    },
+    venue: "Hardware Lab, 2:00 PM",
+    image: "/images/events/vibe-coding.jpg",
     explored: [
       "What vibe coding actually means in practice",
       "Advantages of AI-assisted development",
