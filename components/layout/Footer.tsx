@@ -65,13 +65,15 @@ export function Footer() {
           <p className="text-[0.8125rem] tracking-[-0.005em] text-slate-blue">
             {site.legalName}
           </p>
-          {/* Handwritten credit, kept as artwork rather than set in type. */}
+          {/* Handwritten credit, paper knocked out so only the ink sits on the
+              footer. Wording repeats in alt text, since an image of text is
+              invisible to screen readers and search engines alike. */}
           <Image
-            src="/images/brand/credit.jpg"
+            src="/images/brand/credit.png"
             alt="Designed and developed by R. Magdaleena, Vice President at CSI SRMIST VDP"
-            width={1200}
-            height={222}
-            className="w-full max-w-[22rem] rounded-lg mix-blend-multiply sm:max-w-[26rem]"
+            width={1400}
+            height={259}
+            className="w-full max-w-[22rem] sm:max-w-[26rem]"
           />
         </div>
       </div>
