@@ -1,26 +1,28 @@
 import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 
+// All four are landscape, so the composition varies by span and offset rather
+// than by cropping a wide photograph into a portrait frame.
 const moments = [
   {
-    src: "/images/moments/session.svg",
-    alt: "Members during a CSI technical session",
+    src: "/images/moments/session.jpg",
+    alt: "A speaker presenting to a full lab during a CSI session",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    src: "/images/moments/lab.jpg",
+    alt: "Faculty and students at the start of a session in the CSE lab",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    src: "/images/moments/audience.jpg",
+    alt: "Members seated through a session in the computer lab",
     ratio: "aspect-[16/10]",
   },
   {
-    src: "/images/moments/lab.svg",
-    alt: "A hands-on lab at the chapter",
-    ratio: "aspect-[4/5]",
-  },
-  {
-    src: "/images/moments/questions.svg",
-    alt: "Members asking questions after a talk",
-    ratio: "aspect-[16/9]",
-  },
-  {
-    src: "/images/moments/break.svg",
-    alt: "Conversation between sessions",
-    ratio: "aspect-[4/5]",
+    src: "/images/moments/figma.jpg",
+    alt: "Opening an introduction to design and Figma session",
+    ratio: "aspect-[4/3]",
   },
 ];
 
@@ -88,12 +90,12 @@ export function MomentsGallery() {
             sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
           />
           {/* deliberate overlap — one only, on wide screens */}
-          <div className="pointer-events-none absolute -right-14 -bottom-16 hidden w-52 xl:block">
+          <div className="pointer-events-none absolute -right-16 -bottom-14 hidden w-60 xl:block">
             <div className="pointer-events-auto rounded-2xl bg-ivory p-1.5 shadow-[0_28px_60px_-40px_rgba(18,38,92,0.7)]">
               <Frame
                 {...moments[3]}
-                ratio="aspect-[4/5]"
-                sizes="176px"
+                ratio="aspect-[4/3]"
+                sizes="240px"
                 className="rounded-xl"
               />
             </div>
