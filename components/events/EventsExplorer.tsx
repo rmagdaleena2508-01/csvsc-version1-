@@ -48,9 +48,11 @@ export function EventsExplorer({ events }: { events: ChapterEvent[] }) {
                   ? "bg-navy text-cream"
                   : "text-navy/70 ring-1 ring-navy/12 hover:bg-navy/5 hover:text-navy"
               } ${
-                // The only category with sessions to show, so it gets a small
-                // recurring lift while something else is selected.
-                category === "Knowledge Session" && !active ? "nudge" : ""
+                // The only category with sessions behind it, so it hovers above
+                // the row while something else is selected.
+                category === "Knowledge Session" && !active
+                  ? "float-cta bg-cream text-navy"
+                  : ""
               }`}
             >
               {category}

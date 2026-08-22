@@ -285,24 +285,27 @@ body {
     0 14px 38px -22px rgba(18, 38, 92, 0.6);
 }
 
-/* A short lift, then a long rest. Enough to catch the eye once in a while
-   without turning into a jiggle you have to look away from. */
-@keyframes nudge {
+/* Continuous hover for the one filter with sessions behind it. The shadow
+   swells and softens with the lift so the pill reads as leaving the row, and a
+   faint halo widens underneath to draw the eye without a colour change. */
+@keyframes float-cta {
   0%,
-  14%,
   100% {
     transform: translateY(0);
+    box-shadow:
+      0 2px 6px -3px rgba(18, 38, 92, 0.35),
+      0 0 0 0 rgba(43, 82, 168, 0.14);
   }
-  5% {
-    transform: translateY(-5px);
-  }
-  10% {
-    transform: translateY(-2px);
+  50% {
+    transform: translateY(-6px);
+    box-shadow:
+      0 16px 24px -12px rgba(18, 38, 92, 0.5),
+      0 0 0 7px rgba(43, 82, 168, 0.09);
   }
 }
 
-.nudge {
-  animation: nudge 3.6s var(--ease-editorial) infinite;
+.float-cta {
+  animation: float-cta 2.6s var(--ease-editorial) infinite;
   will-change: transform;
 }
 
