@@ -3,7 +3,7 @@
 The official site of the Computer Society of India Student Chapter at SRMIST
 Vadapalani.
 
-**Live:** https://rmagdaleena2508-01.github.io/csvsc-version1-/
+**Live:** https://rmagdaleena2508-01.github.io/CSI-SRMISTVDP/
 
 ---
 
@@ -109,7 +109,7 @@ repository's subpath and publishes it.
 | Variable | Pages | Vercel |
 | --- | --- | --- |
 | `STATIC_EXPORT` | `true` | unset |
-| `NEXT_PUBLIC_BASE_PATH` | `/csvsc-version1-` | unset |
+| `NEXT_PUBLIC_BASE_PATH` | `/CSI-SRMISTVDP` | unset |
 | `NEXT_PUBLIC_SITE_URL` | the Pages URL | the production domain |
 
 Anything hand-written that points at `/public` — a raw `<img>`, a CSS `url()` —

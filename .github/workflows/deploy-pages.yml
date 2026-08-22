@@ -31,8 +31,8 @@ jobs:
         run: npm run build
         env:
           STATIC_EXPORT: "true"
-          NEXT_PUBLIC_BASE_PATH: /csvsc-version1-
-          NEXT_PUBLIC_SITE_URL: https://rmagdaleena2508-01.github.io/csvsc-version1-
+          NEXT_PUBLIC_BASE_PATH: /CSI-SRMISTVDP
+          NEXT_PUBLIC_SITE_URL: https://rmagdaleena2508-01.github.io/CSI-SRMISTVDP
           # Mirror of the Vercel site. Kept out of the index so the two do not
           # compete as duplicates.
           NEXT_PUBLIC_NOINDEX: "true"
