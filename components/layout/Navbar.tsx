@@ -212,7 +212,7 @@ export function Navbar() {
       >
         <nav
           aria-label="Primary mobile"
-          className="glass glass-solid mt-1 flex flex-col rounded-3xl p-3 backdrop-blur-2xl backdrop-saturate-150"
+          className="glass-panel mt-1 flex flex-col rounded-3xl p-3 backdrop-blur-3xl backdrop-saturate-[180%]"
         >
           {navigation.map((item) => (
             <Link
@@ -226,20 +226,20 @@ export function Navbar() {
               className={`rounded-2xl px-4 py-3.5 text-title font-normal tracking-[-0.02em] transition-colors ${
                 isActive(item.href)
                   ? "bg-navy text-cream"
-                  : "text-navy hover:bg-navy/5"
+                  : "text-navy hover:bg-white/45"
               }`}
             >
               {item.label}
             </Link>
           ))}
-          <div className="mt-2 flex gap-2 border-t border-navy/10 pt-3">
+          <div className="mt-2 flex gap-2 border-t border-white/50 pt-3">
             {socialLinks.map(({ href, label, Icon }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-navy/5 px-4 py-3 text-[0.9375rem] text-navy transition-colors hover:bg-navy/10"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-white/45 px-4 py-3 text-[0.9375rem] text-navy ring-1 ring-white/60 transition-colors hover:bg-white/70"
               >
                 <Icon size={16} strokeWidth={1.6} />
                 {label}
