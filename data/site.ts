@@ -3,9 +3,14 @@ export const site = {
   institution: "SRMIST Vadapalani",
   legalName: "Computer Society of India — SRMIST Vadapalani Student Chapter",
   // Set per deployment; canonical tags, Open Graph and the sitemap read it.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://csi-srmvdp.org",
+  // Falls back to production rather than a placeholder: a wrong canonical tag
+  // sends search engines to a domain that does not exist, which is worse than
+  // having none at all.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://csi-srmistvdp.vercel.app",
   description:
     "Official website of the Computer Society of India Student Chapter at SRMIST Vadapalani. Explore our workshops, technical sessions, events and insights.",
+  /** Set on mirror deployments so only the canonical host is indexed. */
+  noindex: process.env.NEXT_PUBLIC_NOINDEX === "true",
   socials: {
     linkedin: "https://www.linkedin.com/company/computer-society-of-india-csi-srmist-vadapalani/",
     instagram: "https://www.instagram.com/csi_srmist_vdp/",

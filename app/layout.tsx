@@ -64,14 +64,27 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     locale: "en_IN",
+    images: [
+      {
+        url: "/images/brand/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${site.name}, ${site.institution}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.institution}`,
     description: site.description,
+    images: ["/images/brand/og.jpg"],
   },
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true },
+  // The GitHub Pages copy is a mirror. Only one of the two may be indexed, or
+  // they compete as duplicates of each other.
+  robots: site.noindex
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
