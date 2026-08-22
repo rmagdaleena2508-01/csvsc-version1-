@@ -8,7 +8,7 @@ export const site = {
     "Official website of the Computer Society of India Student Chapter at SRMIST Vadapalani. Explore our workshops, technical sessions, events and insights.",
   socials: {
     linkedin: "https://www.linkedin.com/company/computer-society-of-india-csi-srmist-vadapalani/",
-    instagram: "https://www.instagram.com/csi_srmvdp/",
+    instagram: "https://www.instagram.com/csi_srmist_vdp/",
   },
 } as const;
 
