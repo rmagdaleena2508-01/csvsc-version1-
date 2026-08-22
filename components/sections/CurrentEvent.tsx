@@ -74,13 +74,13 @@ export function CurrentEvent() {
             </Link>
           </div>
 
-          <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-sky-100 ring-1 ring-navy/8 lg:aspect-[4/3]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-navy/5 ring-1 ring-navy/8 lg:aspect-[4/5]">
             <Image
               src={event.image}
               alt={`${event.title} — event poster`}
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"
-              className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
+              className="object-contain transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
             />
           </div>
         </article>

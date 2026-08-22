@@ -85,10 +85,16 @@ export default async function EventPage({
           </p>
         </section>
 
-        <div className="grid grid-cols-1 gap-16 pb-section lg:grid-cols-2 lg:gap-20">
-          <List title="What we explored" items={event.explored} />
-          <List title="Key takeaways" items={event.takeaways} />
-        </div>
+        {event.explored?.length || event.takeaways?.length ? (
+          <div className="grid grid-cols-1 gap-16 pb-section lg:grid-cols-2 lg:gap-20">
+            {event.explored?.length ? (
+              <List title="What we explored" items={event.explored} />
+            ) : null}
+            {event.takeaways?.length ? (
+              <List title="Key takeaways" items={event.takeaways} />
+            ) : null}
+          </div>
+        ) : null}
 
         {event.quote ? (
           <Reveal>

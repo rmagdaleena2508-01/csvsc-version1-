@@ -18,9 +18,9 @@ export type ChapterEvent = {
   venue?: string;
   image: string;
   /** Bullets for "What we explored". */
-  explored: string[];
+  explored?: string[];
   /** Bullets for "Key takeaways". */
-  takeaways: string[];
+  takeaways?: string[];
   gallery?: string[];
   quote?: { text: string; attribution: string };
   reportUrl?: string;
@@ -55,13 +55,8 @@ export const events: ChapterEvent[] = [
     takeaways: [
       "Speed is the easy win. Correctness still costs the same attention it always did.",
       "Read generated code the way you would review a stranger's pull request.",
-      "Prompting is specification writing — vague input produces confidently wrong output.",
+      "Prompting is specification writing, vague input produces confidently wrong output.",
       "Never paste credentials, private data or unreleased work into a tool you do not control.",
-    ],
-    gallery: [
-      "/images/events/vibe-coding-1.svg",
-      "/images/events/vibe-coding-2.svg",
-      "/images/events/vibe-coding-3.svg",
     ],
     quote: {
       text: "AI can accelerate development. Judgment still belongs to the developer.",
@@ -70,146 +65,67 @@ export const events: ChapterEvent[] = [
     featured: true,
   },
   {
-    slug: "generative-ai-workshop",
-    title: "Generative AI Workshop",
-    date: "2026-07-24",
-    category: "Workshop",
-    description: "Understanding modern AI tools and workflows.",
-    summary:
-      "A hands-on introduction to the current generation of AI tooling — what these models are good at, where they fail, and how to fold them into an everyday workflow without outsourcing your thinking.",
-    speaker: { name: "Guest Speaker", role: "Applied AI Practitioner" },
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/generative-ai-workshop.svg",
-    explored: [
-      "How current generative models are built and served",
-      "Prompting as an engineering discipline",
-      "Retrieval, grounding and why models hallucinate",
-      "Evaluating output instead of trusting it",
-    ],
-    takeaways: [
-      "A model is a tool with a failure mode, not an oracle.",
-      "Grounding a model in real sources beats a longer prompt almost every time.",
-      "Measure quality before you ship anything built on a model.",
-    ],
-    gallery: [
-      "/images/events/generative-ai-workshop-1.svg",
-      "/images/events/generative-ai-workshop-2.svg",
-      "/images/events/generative-ai-workshop-3.svg",
-    ],
-    quote: {
-      text: "The interesting part is not what the model writes. It is what you decide to keep.",
-      attribution: "Workshop discussion",
-    },
-  },
-  {
-    slug: "industry-interaction",
-    title: "Industry Interaction",
-    date: "2026-06-19",
-    category: "Industry",
-    description: "Learning directly from technology professionals.",
-    summary:
-      "An open conversation with practitioners about how engineering work actually happens after graduation — team structure, review culture, and the difference between a college project and a production system.",
-    speaker: { name: "Industry Panel", role: "Technology Professionals" },
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/industry-interaction.svg",
-    explored: [
-      "What a first year in industry really looks like",
-      "How teams plan, review and ship",
-      "Which fundamentals survive every framework change",
-      "Building a portfolio that reads as evidence",
-    ],
-    takeaways: [
-      "Communication is a technical skill, and it is the one most often missing.",
-      "Depth in one stack beats a résumé listing twelve.",
-      "Nobody is measuring you on how fast you type.",
-    ],
-    gallery: [
-      "/images/events/industry-interaction-1.svg",
-      "/images/events/industry-interaction-2.svg",
-      "/images/events/industry-interaction-3.svg",
-    ],
-    quote: {
-      text: "The habits you build in a student chapter are the habits you take to work.",
-      attribution: "Panel remark",
-    },
-  },
-  {
-    slug: "open-source-clinic",
-    title: "Open Source Clinic",
-    date: "2026-05-08",
-    category: "Discussion",
-    description: "Making a first contribution, together.",
-    summary:
-      "A working session where members picked a real repository, read the contribution guide properly, and opened a first pull request before leaving the room.",
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/open-source-clinic.svg",
-    explored: [
-      "Reading an unfamiliar codebase quickly",
-      "Issue triage and choosing a first task",
-      "Commit hygiene and pull request etiquette",
-      "Responding to review without taking it personally",
-    ],
-    takeaways: [
-      "A good first contribution is small, complete and well described.",
-      "Maintainers are reviewing your patience as much as your patch.",
-    ],
-    gallery: [
-      "/images/events/open-source-clinic-1.svg",
-      "/images/events/open-source-clinic-2.svg",
-      "/images/events/open-source-clinic-3.svg",
-    ],
-  },
-  {
-    slug: "cloud-foundations",
-    title: "Cloud Foundations",
-    date: "2026-04-03",
-    category: "Knowledge Session",
-    description: "The mental model behind cloud infrastructure.",
-    summary:
-      "A grounding session on what actually sits behind a deploy button — compute, storage, networking and the cost model that quietly shapes every architectural decision.",
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/cloud-foundations.svg",
-    explored: [
-      "Compute, storage and networking primitives",
-      "Regions, availability and failure domains",
-      "Why cloud bills surprise people",
-      "Reading architecture diagrams critically",
-    ],
-    takeaways: [
-      "Managed does not mean magic — someone still runs the machine.",
-      "Architecture decisions are cost decisions.",
-    ],
-    gallery: [
-      "/images/events/cloud-foundations-1.svg",
-      "/images/events/cloud-foundations-2.svg",
-      "/images/events/cloud-foundations-3.svg",
-    ],
-  },
-  {
-    slug: "cyber-security-primer",
-    title: "Security Primer",
+    slug: "gsoc-roadmap",
+    title: "Your Roadmap to Becoming a GSoC Contributor",
     date: "2026-03-12",
     category: "Knowledge Session",
-    description: "How systems break, and how they are defended.",
+    description: "Knowledge Updates Seminar Series #6.",
     summary:
-      "An introduction to thinking like an attacker so you can build like a defender — the common classes of vulnerability, and the habits that prevent most of them.",
-    venue: "SRMIST Vadapalani",
-    image: "/images/events/cyber-security-primer.svg",
+      "Knowledge Updates Seminar Series #6, held with IEEE CS. A walk through what it takes to contribute to Google Summer of Code, from an engineer working in cloud-native technologies, DevOps and open source.",
+    speaker: { name: "Achanandhi M", role: "Advanced Analyst at EY" },
+    venue: "CSE Lab 2, 10:00 to 11:00 AM",
+    image: "/images/events/gsoc-roadmap.jpg",
+  },
+  {
+    slug: "community-led-innovation",
+    title:
+      "Community-Led Innovation: How Open Source and AI Geeks Create Real Impact",
+    date: "2026-02-13",
+    category: "Knowledge Session",
+    description: "Knowledge Updates Seminar Series #5.",
+    summary:
+      "Knowledge Updates Seminar Series #5, held with IEEE CS. How open source communities form, how they sustain themselves, and the impact they create, from someone running one.",
+    speaker: {
+      name: "Crystal Darling",
+      role: "Lead and Organizer, AI Geeks Chennai",
+    },
+    venue: "CSE Lab 2, 10:00 to 11:00 AM",
+    image: "/images/events/community-led-innovation.jpg",
+  },
+  {
+    slug: "communication-side-hustles",
+    title: "Communication Skills, Side Hustles and Freelancing for Income",
+    date: "2026-01-30",
+    category: "Knowledge Session",
+    description: "Turning communication into opportunities and income.",
+    summary:
+      "A session on the skills that open doors alongside technical ability: communicating well, finding work that fits around college, and turning conversations into freelance income.",
+    speaker: {
+      name: "Jaishree B",
+      role: "B.Tech CSE IV Year, SRM IST Vadapalani",
+    },
+    venue: "CSE Hardware Lab, 9:00 to 10:00 AM",
+    image: "/images/events/communication-side-hustles.jpg",
     explored: [
-      "Threat modelling in plain language",
-      "Injection, authentication and access-control failures",
-      "Secrets management for student projects",
-      "Reporting a vulnerability responsibly",
+      "How communication creates opportunities faster than skills alone",
+      "Side hustles that actually work during college",
+      "Turning conversations into income: freelancing basics and commercialization",
     ],
-    takeaways: [
-      "Most breaches are boring mistakes, not clever exploits.",
-      "Security is a review habit before it is a tool.",
-    ],
-    gallery: [
-      "/images/events/cyber-security-primer-1.svg",
-      "/images/events/cyber-security-primer-2.svg",
-      "/images/events/cyber-security-primer-3.svg",
-    ],
+  },
+  {
+    slug: "decode-the-interview",
+    title: "Decode the Interview",
+    date: "2025-10-27",
+    category: "Knowledge Session",
+    description: "How technical interviews actually run.",
+    summary:
+      "A session on what technical interviews look like from the other side of the table, led by the chapter's own President.",
+    speaker: {
+      name: "Antony Saju David",
+      role: "President, CSI Student Chapter, SRMIST VDP",
+    },
+    venue: "CSE Hardware Lab, 11:40 AM",
+    image: "/images/events/decode-the-interview.jpg",
   },
 ];
 

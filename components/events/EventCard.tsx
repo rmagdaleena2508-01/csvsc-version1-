@@ -16,7 +16,7 @@ export function EventCard({ event, priority = false }: Props) {
         href={`/events/${event.slug}`}
         className="flex h-full flex-col rounded-3xl outline-offset-4"
       >
-        <div className="metal-frame relative aspect-[4/3] overflow-hidden rounded-3xl bg-sky-100">
+        <div className="metal-frame relative aspect-[3/4] overflow-hidden rounded-3xl bg-navy/5">
           <Image
             src={event.image}
             alt={`${event.title} — session photograph`}
@@ -24,7 +24,7 @@ export function EventCard({ event, priority = false }: Props) {
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
             loading={priority ? "eager" : "lazy"}
             priority={priority}
-            className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
+            className="object-contain transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
           />
         </div>
 

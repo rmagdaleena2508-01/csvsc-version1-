@@ -43,14 +43,14 @@ export function EventHero({ event }: { event: ChapterEvent }) {
         ))}
       </dl>
 
-      <div className="metal-frame relative mt-12 aspect-[16/9] overflow-hidden rounded-[2rem] bg-sky-100 sm:mt-16">
+      <div className="metal-frame relative mt-12 aspect-[4/3] overflow-hidden rounded-[2rem] bg-navy/5 sm:mt-16 sm:aspect-[16/9]">
         <Image
           src={event.image}
           alt={`${event.title} — photograph from the session`}
           fill
           priority
           sizes="(min-width: 1440px) 88rem, 100vw"
-          className="object-cover"
+          className="object-contain"
         />
       </div>
     </header>
