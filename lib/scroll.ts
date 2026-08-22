@@ -41,4 +41,23 @@ export function scrollToId(id: string) {
   return true;
 }
 
+/** Same timeline, aimed at the top of the page. */
+export function scrollToTop() {
+  const start = window.scrollY;
+  if (start < 2) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    window.scrollTo({ top: 0, behavior: "instant" });
+    return;
+  }
+
+  const began = performance.now();
+  const step = (now: number) => {
+    const p = Math.min(1, (now - began) / DURATION);
+    window.scrollTo({ top: start * (1 - easeInOutCubic(p)), behavior: "instant" });
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
 export const SCROLL_DURATION = DURATION;

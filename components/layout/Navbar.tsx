@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { InstagramIcon, LinkedinIcon } from "@/components/ui/icons";
 import { navigation, site } from "@/data/site";
-import { SCROLL_DURATION, scrollToId } from "@/lib/scroll";
+import { SCROLL_DURATION, scrollToId, scrollToTop } from "@/lib/scroll";
 import { CollegeCard } from "./CollegeCard";
 
 export function Navbar() {
@@ -65,7 +65,20 @@ export function Navbar() {
   };
 
   const goToSection = (event: React.MouseEvent, href: string) => {
-    if (!href.startsWith("/#") || event.metaKey || event.ctrlKey) return;
+    if (event.metaKey || event.ctrlKey) return;
+
+    // Already on the home route, so the router has nothing to do and the page
+    // would sit wherever it was. Take it back to the top instead.
+    if (href === "/" && pathname === "/") {
+      event.preventDefault();
+      window.clearTimeout(pinTimer.current);
+      setPinned(false);
+      scrollToTop();
+      history.replaceState(null, "", "/");
+      return;
+    }
+
+    if (!href.startsWith("/#")) return;
     setPinned(true);
     window.clearTimeout(pinTimer.current);
     pinTimer.current = window.setTimeout(
