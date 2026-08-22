@@ -219,8 +219,11 @@ export function Navbar() {
               key={item.label}
               href={item.href}
               onClick={(e) => {
-                setOpen(false);
                 goToSection(e, item.href);
+                // Close after the click finishes dispatching. Hiding the panel
+                // synchronously removes the anchor mid-event, which can drop
+                // the navigation that was supposed to follow it.
+                requestAnimationFrame(() => setOpen(false));
               }}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={`rounded-2xl px-4 py-3.5 text-title font-normal tracking-[-0.02em] transition-colors ${
@@ -239,6 +242,7 @@ export function Navbar() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => requestAnimationFrame(() => setOpen(false))}
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-white/45 px-4 py-3 text-[0.9375rem] text-navy ring-1 ring-white/60 transition-colors hover:bg-white/70"
               >
                 <Icon size={16} strokeWidth={1.6} />
