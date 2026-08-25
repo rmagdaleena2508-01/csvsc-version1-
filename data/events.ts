@@ -37,6 +37,34 @@ export type ChapterEvent = {
  */
 export const events: ChapterEvent[] = [
   {
+    slug: "skillshone-orientation",
+    title: "SKILLSHONE Orientation Programme",
+    date: "2026-08-25",
+    category: "Industry",
+    description: "Industry-oriented learning and real-time project opportunities.",
+    summary:
+      "An orientation on industry-oriented learning and real-time project work with industry mentors, held with IEEE CS. The session ranged over how generative AI is reshaping hiring, why domain knowledge matters as much as technical skill, and how to build proof of your work before graduating.",
+    speaker: { name: "Mr. Malaya Rout", role: "Director, Exafluence" },
+    venue: "3rd Floor Auditorium, 9:00 to 10:30 AM",
+    image: "/images/events/skillshone-orientation.jpg",
+    takeaways: [
+      "AI is changing the job market. Generative AI is reshaping roles and influencing how companies hire and work.",
+      "Learn to work with AI. Instead of avoiding AI, students should learn how to use it effectively in their everyday work.",
+      "Know your industry vertical. Understanding the industry you work in is just as important as knowing your technical skills.",
+      "Your domain matters. Especially for experienced professionals looking for lateral opportunities, companies value relevant domain knowledge.",
+      "Ask about your role in interviews. It is both your right and responsibility to ask which domain you will be working in.",
+      "Start gaining experience early. Build projects, take up internships, and work on real-world problems before graduation.",
+      "Projects can become proof of your skills. Practical work helps you demonstrate what you can actually do, rather than only talking about what you have learned.",
+      "Do not hesitate to ask questions.",
+      "Make use of platforms like SKILLSHONE. Students can work on real-time projects with guidance from industry professionals and gain practical industry exposure.",
+    ],
+    quote: {
+      text: "Your eyes are brightened up with questions. Do ask them.",
+      attribution: "Mr. Malaya Rout, encouraging students to speak up",
+    },
+    highlight: true,
+  },
+  {
     slug: "beyond-the-cgpa",
     title: "Beyond the CGPA: Building a Tech Career That Actually Works",
     date: "2026-08-27",
@@ -84,7 +112,6 @@ export const events: ChapterEvent[] = [
       text: "AI can accelerate development. Judgment still belongs to the developer.",
       attribution: "Closing note from the session",
     },
-    highlight: true,
   },
   {
     slug: "gsoc-roadmap",
@@ -155,7 +182,6 @@ export const events: ChapterEvent[] = [
 export const upcomingCategories: readonly EventCategory[] = [
   "Workshop",
   "Discussion",
-  "Industry",
 ];
 
 export const eventCategories: readonly ("All" | EventCategory)[] = [

@@ -12,6 +12,12 @@ export type Insight = {
  */
 export const insights: Insight[] = [
   {
+    source: "From the SKILLSHONE Orientation",
+    statement: "Projects become the proof. Talking about what you learned does not.",
+    detail:
+      "Build things, take internships, work on real problems before you graduate. The session was blunt about why: practical work shows what you can actually do, and generative AI is already changing what companies hire for.",
+  },
+  {
     source: "From Code Less, Create More",
     statement:
       "Coding is shifting from manual implementation to AI-assisted development.",
