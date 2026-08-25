@@ -21,7 +21,7 @@ export type ChapterEvent = {
   explored?: string[];
   /** Bullets for "Key takeaways". */
   takeaways?: string[];
-  gallery?: string[];
+  gallery?: { src: string; caption?: string }[];
   quote?: { text: string; attribution: string };
   reportUrl?: string;
   /** The one shown under "Happening this month". */
@@ -48,10 +48,28 @@ export const events: ChapterEvent[] = [
     venue: "3rd Floor Auditorium, 9:00 to 10:30 AM",
     image: "/images/events/skillshone-orientation.jpg",
     gallery: [
-      "/images/events/skillshone-orientation-1.jpg",
-      "/images/events/skillshone-orientation-2.jpg",
-      "/images/events/skillshone-orientation-3.jpg",
-      "/images/events/skillshone-orientation-4.jpg",
+      {
+        src: "/images/events/skillshone-orientation-5.jpg",
+        caption:
+          "Dean FET, Dr. CV Jayakumar Sir, addressing the guest and students",
+      },
+      {
+        src: "/images/events/skillshone-orientation-3.jpg",
+        caption:
+          "HOD of CSE, Dr. Golda Dilip ma'am, addressing the guest and students",
+      },
+      {
+        src: "/images/events/skillshone-orientation-1.jpg",
+        caption: "Mr. Malaya Rout addressing the students",
+      },
+      {
+        src: "/images/events/skillshone-orientation-2.jpg",
+        caption: "Walking through the SKILLSHONE platform",
+      },
+      {
+        src: "/images/events/skillshone-orientation-4.jpg",
+        caption: "Speaker and the team behind the CSI August event 2026",
+      },
     ],
     reportUrl:
       "https://www.linkedin.com/posts/computer-society-of-india-csi-srmist-vadapalani_csi-event-1-semester-3-25082026-activity-7497952177982922752-1cCr",
