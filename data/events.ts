@@ -24,7 +24,10 @@ export type ChapterEvent = {
   gallery?: string[];
   quote?: { text: string; attribution: string };
   reportUrl?: string;
+  /** The one shown under "Happening this month". */
   featured?: boolean;
+  /** The one shown as the month's highlight, above it. */
+  highlight?: boolean;
 };
 
 /**
@@ -81,6 +84,7 @@ export const events: ChapterEvent[] = [
       text: "AI can accelerate development. Judgment still belongs to the developer.",
       attribution: "Closing note from the session",
     },
+    highlight: true,
   },
   {
     slug: "gsoc-roadmap",
@@ -170,6 +174,8 @@ export const allEvents = [...events].sort(byDateDesc);
 export const featuredEvent =
   allEvents.find((e) => e.featured) ?? allEvents[0];
 
+export const highlightEvent = allEvents.find((e) => e.highlight);
+
 export const recentEvents = allEvents.slice(0, 3);
 
 export function getEvent(slug: string) {
@@ -186,6 +192,15 @@ export function relatedEvents(slug: string, limit = 3) {
     (e) => e.slug !== slug && e.category !== current.category
   );
   return [...sameCategory, ...rest].slice(0, limit);
+}
+
+/** "August 2026", used for the highlight heading so it stays right on its own. */
+export function formatEventMonth(iso: string) {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 export function formatEventDate(iso: string) {

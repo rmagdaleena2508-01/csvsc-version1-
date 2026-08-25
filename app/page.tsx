@@ -1,17 +1,31 @@
 import { Hero } from "@/components/hero/Hero";
-import { CurrentEvent } from "@/components/sections/CurrentEvent";
+import { FeatureEvent } from "@/components/sections/FeatureEvent";
 import { MomentsGallery } from "@/components/sections/MomentsGallery";
 import { RecentEvents } from "@/components/sections/RecentEvents";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
 import { SocialCTA } from "@/components/sections/SocialCTA";
+import { featuredEvent, formatEventMonth, highlightEvent } from "@/data/events";
 import { site } from "@/data/site";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <CurrentEvent />
+
+      {highlightEvent ? (
+        <FeatureEvent
+          id="highlight"
+          heading={`Highlight of ${formatEventMonth(highlightEvent.date)}`}
+          event={highlightEvent}
+        />
+      ) : null}
+
+      <FeatureEvent
+        id="happening"
+        heading="Happening this month"
+        event={featuredEvent}
+      />
       <MomentsGallery />
       <RecentEvents />
       <TeamSection />

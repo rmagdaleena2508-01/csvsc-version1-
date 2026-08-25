@@ -2,11 +2,22 @@ import Link from "next/link";
 import { Img as Image } from "@/components/ui/Img";
 import { ArrowRight, CalendarDays, MapPin, Mic } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
-import { featuredEvent, formatEventDate } from "@/data/events";
+import { formatEventDate, type ChapterEvent } from "@/data/events";
 
-export function CurrentEvent() {
-  const event = featuredEvent;
-
+/**
+ * The large editorial card. Used twice on the home page, for the month's
+ * highlight and for what is coming up, so both stay identical when either
+ * changes.
+ */
+export function FeatureEvent({
+  event,
+  heading,
+  id,
+}: {
+  event: ChapterEvent;
+  heading: string;
+  id: string;
+}) {
   const meta = [
     { Icon: CalendarDays, value: formatEventDate(event.date) },
     event.venue ? { Icon: MapPin, value: event.venue } : null,
@@ -15,17 +26,17 @@ export function CurrentEvent() {
 
   return (
     <section
-      id="happening"
-      aria-labelledby="happening-heading"
+      id={id}
+      aria-labelledby={`${id}-heading`}
       className="container-editorial scroll-mt-24 py-section"
     >
       <Reveal>
         <div className="flex flex-wrap items-baseline justify-between gap-4 border-t border-navy/12 pt-8">
           <h2
-            id="happening-heading"
+            id={`${id}-heading`}
             className="display-serif text-headline font-normal text-navy"
           >
-            Happening this month
+            {heading}
           </h2>
           <Link
             href="/events"
@@ -74,7 +85,7 @@ export function CurrentEvent() {
             </Link>
           </div>
 
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-navy/5 ring-1 ring-navy/8 lg:aspect-[4/5]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-navy/5 ring-1 ring-navy/8">
             <Image
               src={event.image}
               alt={`${event.title} — event poster`}
