@@ -47,6 +47,14 @@ export const events: ChapterEvent[] = [
     speaker: { name: "Mr. Malaya Rout", role: "Director, Exafluence" },
     venue: "3rd Floor Auditorium, 9:00 to 10:30 AM",
     image: "/images/events/skillshone-orientation.jpg",
+    gallery: [
+      "/images/events/skillshone-orientation-1.jpg",
+      "/images/events/skillshone-orientation-2.jpg",
+      "/images/events/skillshone-orientation-3.jpg",
+      "/images/events/skillshone-orientation-4.jpg",
+    ],
+    reportUrl:
+      "https://www.linkedin.com/posts/computer-society-of-india-csi-srmist-vadapalani_csi-event-1-semester-3-25082026-activity-7497952177982922752-1cCr",
     takeaways: [
       "AI is changing the job market. Generative AI is reshaping roles and influencing how companies hire and work.",
       "Learn to work with AI. Instead of avoiding AI, students should learn how to use it effectively in their everyday work.",
